@@ -1,1 +1,5 @@
-{"version":2,"name":"brownie","builds":[{"src":"package.json","use":"@now/next"}]}
+{
+  "version": 2,
+  "name": "blog",
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
+}
