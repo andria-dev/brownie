@@ -1,17 +1,11 @@
-import Link from "next/link";
-import Header from "../components/header";
+import Link from 'next/link'
 
 function Index() {
   return (
     <main>
-      <Header />
-      <section>
-        <Link href="/about">
-          <a>Go to About Me</a>
-        </Link>
-      </section>
+      <p>test</p>
     </main>
-  );
+  )
 }
 
-export default Index;
+export default Index
