@@ -1,3 +1,3 @@
 function Post({ query }) {
-  return null
+  return <p className="text-blue">{query.id}</p>
 }
