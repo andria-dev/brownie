@@ -13,6 +13,7 @@
   "devDependencies": {
     "css-loader": "1.0.1",
     "extracted-loader": "^1.0.7",
+    "ignore-loader": "^0.1.2",
     "now": "^15.0.11",
     "postcss-loader": "^3.0.0",
     "tailwindcss": "^0.7.4"

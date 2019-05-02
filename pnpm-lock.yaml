@@ -6,6 +6,7 @@ dependencies:
 devDependencies:
   css-loader: registry.npmjs.org/css-loader/1.0.1
   extracted-loader: registry.npmjs.org/extracted-loader/1.0.7
+  ignore-loader: registry.npmjs.org/ignore-loader/0.1.2
   now: registry.npmjs.org/now/15.0.11
   postcss-loader: registry.npmjs.org/postcss-loader/3.0.0
   tailwindcss: registry.npmjs.org/tailwindcss/0.7.4
@@ -3750,7 +3751,6 @@ packages:
       tarball: 'https://registry.npmjs.org/iferr/-/iferr-0.1.5.tgz'
     version: 0.1.5
   registry.npmjs.org/ignore-loader/0.1.2:
-    dev: false
     name: ignore-loader
     resolution:
       integrity: sha1-2B8kA3bQuk8Nd4lyw60lh0EXpGM=
@@ -7482,6 +7482,7 @@ specifiers:
   '@zeit/next-css': ^1.0.1
   css-loader: 1.0.1
   extracted-loader: ^1.0.7
+  ignore-loader: ^0.1.2
   next: ^8.1.0
   now: ^15.0.11
   postcss-loader: ^3.0.0
