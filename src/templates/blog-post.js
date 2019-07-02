@@ -32,10 +32,15 @@ class BlogPostTemplate extends React.Component {
           style={{
             ...scale(-1 / 5),
             display: `block`,
-            marginBottom: rhythm(1)
+            marginLeft: rhythm(1 / 8),
+            marginBottom: rhythm(1),
+            opacity: 0.8
           }}
         >
-          {post.frontmatter.date}
+          <time datetime={post.frontmatter.date}>
+            {post.frontmatter.formattedDate}
+          </time>{' '}
+          · {post.timeToRead} min read
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -88,9 +93,11 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      timeToRead
       frontmatter {
         title
-        date(formatString: "MMMM D, YYYY")
+        date(formatString: "YYYY-MM-DD")
+        formattedDate: date(formatString: "MMMM D, YYYY")
         description
       }
     }
