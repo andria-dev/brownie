@@ -10,7 +10,7 @@ Hello, world. This is my first blog post. It's actually just filler content but 
 
 The comma signifies the important distinction between the message, "Hello", and whom it is directed at, the "World". To not use the comma here would be a clear violation of the English language.
 
-```javascript
+```js
 function test(wow = ['wow']) {
   return console.log('This is a test', wow)
 }
