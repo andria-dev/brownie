@@ -29,7 +29,20 @@ class BlogIndex extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small
+                style={{
+                  ...scale(-1 / 5),
+                  display: `block`,
+                  marginLeft: rhythm(1 / 8),
+                  marginBottom: 0,
+                  opacity: 0.8
+                }}
+              >
+                <time dateTime={node.frontmatter.date}>
+                  {node.frontmatter.formattedDate}
+                </time>{' '}
+                · {node.timeToRead} min read
+              </small>
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt
@@ -60,7 +73,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
+            formattedDate: date(formatString: "MMMM DD, YYYY")
             title
             description
           }

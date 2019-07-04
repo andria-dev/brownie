@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
             opacity: 0.8
           }}
         >
-          <time datetime={post.frontmatter.date}>
+          <time dateTime={post.frontmatter.date}>
             {post.frontmatter.formattedDate}
           </time>{' '}
           · {post.timeToRead} min read
