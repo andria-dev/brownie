@@ -56,7 +56,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives in the Boise Idaho area
+        Written by <strong>{author}</strong>, a United States Airman
         building useful things for the OSS community.
         {` `}
         Follow him on{' '}
