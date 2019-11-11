@@ -5,7 +5,8 @@ date: 2018-06-30
 ---
 
 ![](matrix-code.jpeg)
-<small align=center>Photo by [Markus Spiske](https://unsplash.com/@markusspiske?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)</small>
+<br>
+<small align="center" style="width: 100%; display: block;">Photo by [Markus Spiske](https://unsplash.com/@markusspiske?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)</small>
 
 We've all seen (and written) bad code at one point or another. To avoid putting more bad code into the world, hopefully we're all working at bettering our coding skills, which means perfecting what we already know and not just learning the newest framework out there.
 
