@@ -20,9 +20,24 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        {!post.frontmatter.published ? (
+          <p
+            style={{
+              ...scale(-1 / 5),
+              marginLeft: rhythm(1 / 8),
+              marginTop: rhythm(1),
+              marginBottom: 0,
+              opacity: 0.8,
+              fontWeight: 'bold',
+              fontFamily: 'Verdana'
+            }}
+          >
+            DRAFT
+          </p>
+        ) : null}
         <h1
           style={{
-            marginTop: rhythm(1),
+            marginTop: post.frontmatter.published ? rhythm(1) : 0,
             marginBottom: 0
           }}
         >
@@ -99,6 +114,7 @@ export const pageQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         formattedDate: date(formatString: "MMMM D, YYYY")
         description
+        published
       }
     }
   }

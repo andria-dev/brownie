@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
+          filter: { frontmatter: { published: { eq: true } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -38,14 +39,8 @@ exports.createPages = ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
-      const isDraft = !post.node.frontmatter.published
-      const path = (isDraft ? '/drafts' : '') + post.node.fields.slug
-
-      console.log('isDraft', isDraft)
-      console.log('path', path)
-
       createPage({
-        path,
+        path: post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,

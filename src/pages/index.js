@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
+console.log('PROCESS.ENV.NODE_ENV is:', process.env.NODE_ENV)
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -17,6 +19,10 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <Bio />
         {posts.map(({ node }) => {
+          if (!node.frontmatter.published) {
+            return null
+          }
+
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={node.fields.slug}>
@@ -65,10 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { published: { eq: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
@@ -81,6 +84,7 @@ export const pageQuery = graphql`
             formattedDate: date(formatString: "MMMM DD, YYYY")
             title
             description
+            published
           }
         }
       }
