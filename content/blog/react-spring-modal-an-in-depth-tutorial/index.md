@@ -1,0 +1,89 @@
+---
+title: 'React Spring Modal: An In-Depth Tutorial'
+description: How to use my new library to accessibly and smoothly display beautiful modals
+date: 2019-11-11
+---
+
+<video autoplay loop style="width: 100%; border-radius: 4px;">
+  <source src="notably-example-recording.mp4" />
+</video>
+
+## What is React Spring Modal?
+
+React Spring Modal is a component library for building completely animatable and thoroughly accessible modals. Packaged with it are a couple of pre-built modal components with animations to simplify the more common use cases.
+
+<hr>
+
+## Setup
+
+Before we can jump right in, there are a few things you need to do to get started due to this package's reliance on React and React Spring.
+
+#### Installation
+
+React Spring Modal has three peer dependencies: react, react-dom, and react-spring. To install this package and it's peer dependencies run this command `pnpm i react-spring-modal react react-dom react-spring`.
+
+####
+
+- Add `<div id="modal-root"></div>` to your index.html file to allow the modals to render outside of the normal flow of your tree and into a special modal tree.
+- Usage
+
+  - provided modals
+    - There are two provided modals: `<BottomModal>` and `<CenterModal>`. BottomModal slides in from the bottom providing a nice user interface for contextual menus. CenterModal is just your average centered-in-the-screen modal that fades in.
+    - To use these components all you need to do is provide to the component the following props:
+      - `isOpen` a boolean used to determine whether or not the modal should be open
+      - `onRequestClose` a function that will change the state associated with `isOpen` to `false`. This is used for things like pressing the Esc (escape) key or clicking outside of the modal.
+  - building a custom modal
+
+    - explanation of how BaseModal works and what it does
+      - BaseModal isn't just a component to render the tree you provide it to `<div id="modal-root">` through a portal. It also handles quite a few accessibility and user experience concerns.
+      - Here is a list of all of the things that BaseModal does:
+        - locks the screen from scrolling when the modal is open
+        - provides a backdrop that fades in
+        - focus restoration when closing the modal
+        - focuses on the first focusable element of the modal when opened
+        - closes the modal when Esc (escape) is pressed
+        - closes the modal when the backdrop is clicked on instead of an item in the modal
+        - applies the attribute `inert` to `<div id="root">` or `<div id="__next">` which prevents all users (screen readers, keyboard warriors, and mouse chasers) from interacting with the elements you should no longer be able to reach.
+    - How do you use BaseModal? - you use it the same way you would BottomModal or CenterModal but there's no styled container that looks like a modal that your elements are rendered into, you have to provide this styled and animated container element yourself. - To create your own modal with BaseModal you just have to use `react-spring`'s `useTransition`. Say you want your modal to grow in using a CSS transform, that might look like this:
+
+      ```jsx
+      // This is the state that determines if the modal is open
+      const [isOpen, setOpen] = useState(false)
+
+      // This is where our animation is created
+      // we go from `scale(0)` to `scale(1)`
+      const transition = useTransition(isOpen, null, {
+        from: { transform: 'scale(0)' },
+        enter: { transform: 'scale(1)' },
+        leave: { transform: 'scale(0)' }
+      })
+
+      // Below you'll see a property called "props" it contains all of the animated styles, pass it to your `animated` component and you're all set
+      // You'll also see "item", this is used to determine when your modal should be rendered at all.
+      return (
+        <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
+          {transition.map(
+            ({ item, key, props }) =>
+              item && (
+                <animated.div key={key} style={props}>
+                  <h1>Your Modal Has Arrived</h1>
+                  <p>This will have scaled in once opened</p>
+                </animated.div>
+              )
+          )}
+        </BaseModal>
+      )
+      ```
+
+      If you're not fond of animations just pass in any old thing to BaseModal:
+
+  ```jsx
+  <BaseModal>
+    <main>
+      <h1>My simple modal</h1>
+      <p>Sometimes animations just slow things down</p>
+    </main>
+  </BaseModal>
+  ```
+
+  - nesting
