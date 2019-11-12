@@ -2,6 +2,7 @@
 title: 'React Spring Modal: An In-Depth Tutorial'
 description: How to use my new library to accessibly and smoothly display beautiful modals
 date: 2019-11-11
+published: false
 ---
 
 <video autoplay loop style="width: 100%; border-radius: 4px;">
@@ -75,36 +76,36 @@ You use it the same way you would `<BottomModal>` or `<CenterModal>`, however, t
 
 To create your own modal with `<BaseModal>` you just have to use `react-spring`'s `useTransition`. Say you want your modal to grow in using a CSS transform, that might look like this:
 
-  ```jsx
-  // This is the state that determines if the modal is open
-  const [isOpen, setOpen] = useState(false)
+```jsx
+// This is the state that determines if the modal is open
+const [isOpen, setOpen] = useState(false)
 
-  // This is where our animation is created
-  // we go from `scale(0)` to `scale(1)`
-  const transition = useTransition(isOpen, null, {
-    from: { transform: 'scale(0)' },
-    enter: { transform: 'scale(1)' },
-    leave: { transform: 'scale(0)' }
-  })
+// This is where our animation is created
+// we go from `scale(0)` to `scale(1)`
+const transition = useTransition(isOpen, null, {
+  from: { transform: 'scale(0)' },
+  enter: { transform: 'scale(1)' },
+  leave: { transform: 'scale(0)' }
+})
 
-  // Below you'll see a property called "props" it contains all of the animated styles, pass it to your `animated` component and you're all set
-  // You'll also see "item", this is used to determine when your modal should be rendered at all.
-  return (
-    <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
-      {transition.map(
-        ({ item, key, props }) =>
-          item && (
-            <animated.div key={key} style={props}>
-              <h1>Your Modal Has Arrived</h1>
-              <p>This will have scaled in once opened</p>
-            </animated.div>
-          )
-      )}
-    </BaseModal>
-  )
-  ```
+// Below you'll see a property called "props" it contains all of the animated styles, pass it to your `animated` component and you're all set
+// You'll also see "item", this is used to determine when your modal should be rendered at all.
+return (
+  <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
+    {transition.map(
+      ({ item, key, props }) =>
+        item && (
+          <animated.div key={key} style={props}>
+            <h1>Your Modal Has Arrived</h1>
+            <p>This will have scaled in once opened</p>
+          </animated.div>
+        )
+    )}
+  </BaseModal>
+)
+```
 
-  If you're not fond of animations just pass in any old thing to BaseModal:
+If you're not fond of animations just pass in any old thing to BaseModal:
 
 ```jsx
 <BaseModal>
