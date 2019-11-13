@@ -74,18 +74,18 @@ Here is a list of all of the things that `<BaseModal>` does:
 
 You use it the same way you would `<BottomModal>` or `<CenterModal>`, however, there's no styled container that looks like a modal that your elements are rendered into. Instead, you have to provide a styled and animated container element yourself.
 
-To create your own modal with `<BaseModal>` you just have to use `react-spring`'s `useTransition`. Say you want your modal to grow in using a CSS transform, that might look like this:
+To create your own modal with `<BaseModal>` you just have to use `react-spring`'s `useTransition`. Say you want your modal to fade in using a CSS transform, that might look like this:
 
 ```jsx
 // This is the state that determines if the modal is open
 const [isOpen, setOpen] = useState(false)
 
 // This is where our animation is created
-// we go from `scale(0)` to `scale(1)`
+// we go from `opacity: 0` to `opacity: 1`
 const transition = useTransition(isOpen, null, {
-  from: { transform: 'scale(0)' },
-  enter: { transform: 'scale(1)' },
-  leave: { transform: 'scale(0)' }
+  from: { opacity: '0' },
+  enter: { opacity: '1' },
+  leave: { opacity: '0' }
 })
 
 // Below you'll see a property called "props" it contains all of the animated styles, pass it to your `animated` component and you're all set
@@ -104,6 +104,12 @@ return (
   </BaseModal>
 )
 ```
+
+In the above code-block, you'll notice the main part of animating your modal is setting at what point what the CSS styles you provide should be applied to your element.
+
+- `from` contains the styles that are applied when the modal is first rendered.
+- `enter` contains the styles that are applied when the modal animates to it's open state.
+- `leave` is the opposite of `enter` and often matches `from`. It contains the styles for the closed state.
 
 If you're not fond of animations just pass in any old thing to BaseModal:
 
