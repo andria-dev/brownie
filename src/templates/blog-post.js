@@ -29,7 +29,7 @@ class BlogPostTemplate extends React.Component {
               marginBottom: 0,
               opacity: 0.8,
               fontWeight: 'bold',
-              fontFamily: 'Verdana'
+              fontFamily: 'sans-serif'
             }}
           >
             DRAFT

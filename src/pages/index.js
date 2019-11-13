@@ -19,7 +19,10 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <Bio />
         {posts.map(({ node }) => {
-          if (!node.frontmatter.published) {
+          if (
+            !node.frontmatter.published &&
+            process.env.NODE_ENV === 'production'
+          ) {
             return null
           }
 
@@ -48,6 +51,20 @@ class BlogIndex extends React.Component {
                   {node.frontmatter.formattedDate}
                 </time>{' '}
                 · {node.timeToRead} min read
+                {!node.frontmatter.published ? (
+                  <span
+                    style={{
+                      ...scale(-1 / 5),
+                      marginLeft: rhythm(1 / 8),
+                      marginBottom: 0,
+                      opacity: 0.8,
+                      fontWeight: 600,
+                      fontFamily: 'sans-serif'
+                    }}
+                  >
+                    · DRAFT
+                  </span>
+                ) : null}
               </small>
               <p
                 dangerouslySetInnerHTML={{
