@@ -1,8 +1,8 @@
 ---
 title: 'React Spring Modal: An In-Depth Tutorial'
 description: How to use my new library to accessibly and smoothly display beautiful modals
-date: 2019-11-11
-published: false
+date: 2019-11-13
+published: true
 ---
 
 <video autoplay loop style="width: 100%; border-radius: 4px;">
