@@ -111,6 +111,8 @@ In the above code-block, you'll notice the main part of animating your modal is 
 - `enter` contains the styles that are applied when the modal animates to it's open state.
 - `leave` is the opposite of `enter` and often matches `from`. It contains the styles for the closed state.
 
+Then, these styles are handed to you, once you begin mapping over `transition`, through the property `props`. You can take `props` and pass it directly to your `<animated.div>` (or any other `animated.` element).
+
 Other than specifying your styles, all you have to do is tell it when to open and when to close:
 
 ```js
@@ -119,9 +121,13 @@ useTransition(isOpen, null /* etc ... */)
 
 In the above piece of code, `useTransition` takes in three arguments, we just covered the third one mere moments ago. The first argument, in our case, will always be a `Boolean` value representing the open/close state of the modal. The second argument represents the `key` to uniquely identify your items you wish to animate. It will always be `null` because we are only animating one modal not a list of them.
 
+The second part of telling it how to open and close is done through the property `item`. With our use case, `item` will always be `true` or `false`. This will allow us to conditionally render our modal via `item && (/* my modal code */)`.
+
+<small>Side note: yes you have to do `transition.map()` to access `item` and `props`.</small>
+
 #### What if I just want a plain old modal?
 
-If you're not fond of animations just pass in any old thing to `<BaseModal>` to have it render it while still getting all of it's benefits:
+If you're not fond of animations just pass in any old thing to `<BaseModal>` as children to have it render it while still getting all of it's benefits:
 
 ```jsx
 <BaseModal>
@@ -132,4 +138,36 @@ If you're not fond of animations just pass in any old thing to `<BaseModal>` to 
 </BaseModal>
 ```
 
-If you're thinking to yourself "Wow this is so simple," then
+#### "Wow! This is so simple."
+
+If you're thinking to yourself "Wow! This is so simple," then you're gonna love how simple it is to render another modal from within your modal. If you think that it's not so simple, <a href="https://github.com/ChrisBrownie55/react-spring-modal/issues">please open up an issue on the repository</a> and we can discuss making it better.
+
+### Nesting
+
+The steps one would take to render a modal from within a modal, otherwise known as nesting modals, are no different than the steps to render one modal. For example, say I have two modal components, `<OuterModal>` and `<InnerModal>`, and I want to render `<InnerModal>` when something happens in `<OuterModal>`. That might look like this:
+
+```jsx
+const [isOuterOpen, toggleOuterOpen] = useToggle(false)
+const [isInnerOpen, toggleInnerOpen] = useToggle(false)
+
+return (
+  <OuterModal isOpen={isOuterOpen} onRequestClose={toggleOuterOpen}>
+    <h1>This is the outer modal</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <button onClick={toggleInnerOpen}>Open Inner Modal</button>
+
+    <InnerModal isOpen={isInnerOpen} onRequestClose={toggleInnerOpen}>
+      <h1>This is the inner modal.</h1>
+    </InnerModal>
+  </OuterModal>
+)
+```
+
+## Thank you for your time.
+
+Here are some links to look at if you want to keep exploring:
+
+- <a href="https://www.react-spring.io/">React Spring</a>
+- <a href="https://twitter.com/0xca0a">Creator of React Spring</a>
+- <a href="https://github.com/ChrisBrownie55/react-spring-modal">React Spring Modal</a>
+- <a href="https://github.com/ChrisBrownie55/notably">Notably: an application built with react-spring-modal</a>
