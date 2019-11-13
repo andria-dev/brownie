@@ -111,15 +111,25 @@ In the above code-block, you'll notice the main part of animating your modal is 
 - `enter` contains the styles that are applied when the modal animates to it's open state.
 - `leave` is the opposite of `enter` and often matches `from`. It contains the styles for the closed state.
 
-If you're not fond of animations just pass in any old thing to BaseModal:
+Other than specifying your styles, all you have to do is tell it when to open and when to close:
+
+```js
+useTransition(isOpen, null /* etc ... */)
+```
+
+In the above piece of code, `useTransition` takes in three arguments, we just covered the third one mere moments ago. The first argument, in our case, will always be a `Boolean` value representing the open/close state of the modal. The second argument represents the `key` to uniquely identify your items you wish to animate. It will always be `null` because we are only animating one modal not a list of them.
+
+#### What if I just want a plain old modal?
+
+If you're not fond of animations just pass in any old thing to `<BaseModal>` to have it render it while still getting all of it's benefits:
 
 ```jsx
 <BaseModal>
-  <main>
+  <main className="MyModal">
     <h1>My simple modal</h1>
     <p>Sometimes animations just slow things down</p>
   </main>
 </BaseModal>
 ```
 
-- nesting
+If you're thinking to yourself "Wow this is so simple," then
