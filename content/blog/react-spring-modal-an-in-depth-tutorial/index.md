@@ -5,7 +5,7 @@ date: 2019-11-13
 published: true
 ---
 
-<video autoplay loop style="width: 100%; border-radius: 4px;">
+<video playsinline autoplay loop muted style="width: 100%; border-radius: 4px;">
   <source src="notably-example-recording.mp4" />
 </video>
 
