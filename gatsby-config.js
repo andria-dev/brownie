@@ -66,7 +66,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `content/assets/logo.svg`,
         icon_options: {
-          purpose: `maskable`
+          purpose: `maskable any`
         }
       }
     },
