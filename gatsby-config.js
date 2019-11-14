@@ -58,13 +58,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `The Brownie Blog`,
+        short_name: `Brownie Blog`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#f5f7ff`,
+        theme_color: `#668AFE`,
         display: `minimal-ui`,
-        icon: `content/assets/logo.svg`
+        icon: `content/assets/logo.svg`,
+        icon_options: {
+          purpose: `maskable`
+        }
       }
     },
     `gatsby-plugin-offline`,
