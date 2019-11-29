@@ -55,4 +55,5 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 
 ## Sources
 
+https://chrisbrownie55.github.io/svg-designer
 https://developer.mozilla.org/en-US/docs/Web/Web_Components
