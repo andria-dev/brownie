@@ -7,9 +7,17 @@ published: false
 
 ## What are Web Components?
 
-Web Components are a suite of technologies used to create reusable custom elements.
+> Web Components are a suite of technologies allowing you to create reusable custom elements.
+>
+> — MDN <sup>[1]</sup>
 
-Dolor cillum laboris sint eiusmod ut voluptate magna minim id. Ex aliqua excepteur Lorem proident ullamco ut duis quis aliqua Lorem cillum. Irure et minim esse amet anim cupidatat. Ullamco nisi minim eu non do.
+Currently, web components are made up of **`customElements`, the shadow DOM, and HTML templates**.
+
+`customElements` is the registry you use to define your web components as either standalone elements or extensions of existing elements. There are a few extra APIs attached to `customElements` other than `define()` that we won't go into right now. <sup>[2]</sup>
+
+Then you have the shadow DOM, this is your very own isolated DOM for your custom element. This is what allows things like scoped CSS to be possible. <sup>[3]</sup>
+
+Lastly, we have HTML templates. These are a couple of elements and APIs that are used to make reusable templates. `<template>` is used to keep a copy of your HTML until you render your HTML content to the DOM <sup>[4]</sup>. In conjunction with that, the `<slot>` element is used as a placeholder for content that can be passed into your custom element. <sup>[5]</sup>
 
 ### What can they do?
 
@@ -56,4 +64,9 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 ## Sources
 
 https://chrisbrownie55.github.io/svg-designer
-https://developer.mozilla.org/en-US/docs/Web/Web_Components
+
+1. https://developer.mozilla.org/en-US/docs/Web/Web_Components
+2. https://w3c.github.io/webcomponents/spec/custom
+3. https://developers.google.com/web/fundamentals/web-components/shadowdom
+4. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+5. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
