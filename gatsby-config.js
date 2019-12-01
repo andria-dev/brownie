@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `The Brownie Blog`,
     author: `Christopher Brown`,
-    description: `A blog about front-end web development and my personal life.`,
+    description: `A blog about front-end web development and my life.`,
     siteUrl: `https://chrisbrownie.dev`,
     social: {
       twitter: `ChrisHBrown55`,
