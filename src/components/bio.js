@@ -56,8 +56,8 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong>, from the Boise area. Building
-        useful things for the OSS community.
+        Written by <b>{author}</b>, from the Boise area. Building useful things
+        for the OSS community.
         {` `}
         Follow him on{' '}
         <a href={`https://twitter.com/${social.twitter}`}>
