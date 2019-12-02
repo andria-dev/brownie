@@ -60,8 +60,14 @@ const Bio = () => {
         useful things for the OSS community.
         {` `}
         Follow him on{' '}
-        <a href={`https://twitter.com/${social.twitter}`}>🐦 Twitter</a> or{' '}
-        <a href={`https://github.com/${social.github}`}>👨🏼‍💻 GitHub</a>.
+        <a href={`https://twitter.com/${social.twitter}`}>
+          <span aria-hidden="true">🐦</span> Twitter
+        </a>{' '}
+        or{' '}
+        <a href={`https://github.com/${social.github}`}>
+          <span aria-hidden="true">👨🏼‍💻</span> GitHub
+        </a>
+        .
       </p>
     </div>
   )
