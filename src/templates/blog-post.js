@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import PublicationInfo from '../components/publicationInfo'
 import { rhythm, scale } from '../utils/typography'
 
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
@@ -52,10 +53,11 @@ class BlogPostTemplate extends React.Component {
             opacity: 0.8
           }}
         >
-          <time dateTime={post.frontmatter.date}>
-            {post.frontmatter.formattedDate}
-          </time>{' '}
-          · {post.timeToRead} min read
+          <PublicationInfo
+            date={post.frontmatter.date}
+            formattedDate={post.frontmatter.formattedDate}
+            timeToRead={post.timeToRead}
+          />
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr

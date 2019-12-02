@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import PublicationInfo from '../components/publicationInfo'
 import { rhythm, scale } from '../utils/typography'
 
 console.log('PROCESS.ENV.NODE_ENV is:', process.env.NODE_ENV)
@@ -47,10 +48,11 @@ class BlogIndex extends React.Component {
                   opacity: 0.8
                 }}
               >
-                <time dateTime={node.frontmatter.date}>
-                  {node.frontmatter.formattedDate}
-                </time>{' '}
-                · {node.timeToRead} min read
+                <PublicationInfo
+                  date={node.frontmatter.date}
+                  formattedDate={node.frontmatter.formattedDate}
+                  timeToRead={node.timeToRead}
+                />
                 {!node.frontmatter.published ? (
                   <span
                     style={{
@@ -62,7 +64,7 @@ class BlogIndex extends React.Component {
                       fontFamily: 'sans-serif'
                     }}
                   >
-                    · DRAFT
+                    <span aria-hidden="true">·</span> DRAFT
                   </span>
                 ) : null}
               </small>
