@@ -5,8 +5,10 @@ import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PublicationInfo from '../components/publicationInfo'
-import { rhythm, scale } from '../utils/typography'
 
+import { renderAST } from '../components/BlogPostComponents'
+
+import { rhythm, scale } from '../utils/typography'
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
 
 class BlogPostTemplate extends React.Component {
@@ -59,7 +61,9 @@ class BlogPostTemplate extends React.Component {
             timeToRead={post.timeToRead}
           />
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        {renderAST(post.htmlAst)}
+
         <hr
           style={{
             marginBottom: rhythm(1)
@@ -109,7 +113,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       timeToRead
       frontmatter {
         title

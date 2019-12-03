@@ -29,7 +29,7 @@ React Spring Modal has three peer dependencies: react, react-dom, and react-spri
 
 You might be thinking that we're good to go now and we can just start rendering components. Don't worry, we're almost there.
 
-First, add `<div id="modal-root"></div>` to your _index.html_ file to allow the modals to render outside of the normal flow of your tree and into a special modal tree.
+First, add <code label="a div with an ID of modal-root" value='<div id="modal-root">'></code> to your _index.html_ file to allow the modals to render outside of the normal flow of your tree and into a special modal tree.
 
 Your _index.html_ file should have something like the following in it:
 
