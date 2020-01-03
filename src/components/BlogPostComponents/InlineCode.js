@@ -1,7 +1,6 @@
 import React from 'react'
 
-function AccessibleInlineCode({ label, value, children=value }) {
-  console.log(children)
+function InlineCode({ label, value, children = value }) {
   return (
     <code className="language-html" aria-label={label}>
       {children}
@@ -9,4 +8,4 @@ function AccessibleInlineCode({ label, value, children=value }) {
   )
 }
 
-export default AccessibleInlineCode
+export default InlineCode

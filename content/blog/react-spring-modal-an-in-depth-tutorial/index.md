@@ -23,7 +23,11 @@ Before we can jump right in, there are a few things you need to do to get starte
 
 ### Installation
 
-React Spring Modal has three peer dependencies: react, react-dom, and react-spring. To install this package and it's peer dependencies run this command `pnpm i react-spring-modal react react-dom react-spring`.
+React Spring Modal has three peer dependencies: react, react-dom, and react-spring. To install this package and it's peer dependencies run this command:
+
+```bash
+npm i react-spring-modal react react-dom react-spring
+```
 
 ### Initialization
 
@@ -31,7 +35,7 @@ You might be thinking that we're good to go now and we can just start rendering 
 
 First, add <code label="a div with an ID of modal-root" value='<div id="modal-root">'></code> to your _index.html_ file to allow the modals to render outside of the normal flow of your tree and into a special modal tree.
 
-Your _index.html_ file should have something like the following in it:
+Your _index.html_ file should have something like the following in it (a `div` with an ID of 'root' followed by a `div` with an ID of 'modal-root'):
 
 ```html
 <div id="root"></div>
@@ -44,8 +48,8 @@ This library comes with a way to compose your own modal components and, in addit
 
 ### Provided Modals
 
-- `<BottomModal>` slides in from the bottom providing a nice user interface for contextual menus.
-- `<CenterModal>` is just your average centered-in-the-screen modal that fades in.
+- <code label="Bottom modal" value="<BottomModal>"></code> slides in from the bottom providing a nice user interface for contextual menus.
+- <code label="Center modal" value="<CenterModal>"></code> is just your average centered-in-the-screen modal that fades in.
 
 #### Props
 
