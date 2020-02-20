@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Bio from '../components/bio'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import PublicationInfo from '../components/publicationInfo'
+import Bio from '../../components/bio'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import PublicationInfo from '../../components/publicationInfo'
 
-import { renderAST } from '../components/BlogPostComponents'
+import { renderAST } from '../../components/BlogPostComponents'
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from '../../utils/typography'
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
+import './styles.css';
 
 class BlogPostTemplate extends React.Component {
   render() {

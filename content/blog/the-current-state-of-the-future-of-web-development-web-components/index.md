@@ -21,11 +21,14 @@ Lastly, we have HTML templates. These are a couple of elements and APIs that are
 
 ### What can they do?
 
-- Qui sint incididunt amet ullamco ut occaecat.
-- Qui sint incididunt amet ullamco ut occaecat.
-- Qui sint incididunt amet ullamco ut occaecat.
-- Qui sint incididunt amet ullamco ut occaecat.
-- Qui sint incididunt amet ullamco ut occaecat.
+- React to changes in attributes, that are declared in the `observedAttributes` property, via `attributeChangedCallback`.
+  - This allows you to create elements that are reactive and reusable in nature because they can adjust when their "props" change.
+- Dispatch events upward either to their immediate parent element or all the way through the tree.
+  - This is different from libraries like React where one is required to pass down a function allowing them to pass things back upward.
+- Encapsulate CSS styles which will prevent the styles from becoming global and clashing with existing stylesheets that one is using.
+- Reuse your code in multiple places as HTML elements. This is possible because of the way that Web Components create new instances of themselves.
+- Slotting, or allowing elements to be passed down and rendered inside a web component like `children` via default and named slots.
+- 
 
 ## Advantages and disadvantages of using Web Components:
 
