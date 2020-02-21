@@ -21,6 +21,8 @@ Lastly, we have HTML templates. These are a couple of elements and APIs that are
 
 ### What can they do?
 
+Web Components have a variety of different abilities that provide a unique API for the developer to interact with. These abilities cover a lot of use cases for the web community. Here are some of the abilities provided by the Web Component API:
+
 - React to changes in attributes, that are declared in the `observedAttributes` property, via `attributeChangedCallback`.
   - This allows you to create elements that are reactive and reusable in nature because they can adjust when their "props" change.
 - Dispatch events upward either to their immediate parent element or all the way through the tree.
@@ -28,11 +30,10 @@ Lastly, we have HTML templates. These are a couple of elements and APIs that are
 - Encapsulate CSS styles which will prevent the styles from becoming global and clashing with existing stylesheets that one is using.
 - Reuse your code in multiple places as HTML elements. This is possible because of the way that Web Components create new instances of themselves.
 - Slotting, or allowing elements to be passed down and rendered inside a web component like `children` via default and named slots.
-- 
 
 ## Advantages and disadvantages of using Web Components:
 
-Ullamco et nisi nisi quis sunt enim elit anim qui sit cillum pariatur non. Aliqua commodo reprehenderit pariatur anim. Mollit incididunt do esse enim tempor do magna excepteur ullamco labore nulla occaecat. Aute mollit fugiat anim id fugiat laborum enim in dolor do id ut eu amet. Nulla pariatur dolore tempor aute consequat deserunt aliquip quis ea.
+Beyond just looking at what Web Components capabilities are, it's important to look at how well they're implemented and what features they're missing. This can range from small nitpicks to issues that are the main focus of the community. On the flip side, there are also the features that definitively prove conducive to an expeditious development experience and more manageable code base.
 
 ### Advantages
 
@@ -66,10 +67,10 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 
 ## Sources
 
-https://chrisbrownie55.github.io/svg-designer
-
+0. https://chrisbrownie55.github.io/svg-designer
 1. https://developer.mozilla.org/en-US/docs/Web/Web_Components
 2. https://w3c.github.io/webcomponents/spec/custom
 3. https://developers.google.com/web/fundamentals/web-components/shadowdom
 4. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 5. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
+6. https://javascript.info/shadow-dom-events
