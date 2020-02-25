@@ -33,13 +33,19 @@ Web Components have a variety of different abilities that provide a unique API f
 
 ## Advantages and disadvantages of using Web Components:
 
-Beyond just looking at what Web Components capabilities are, it's important to look at how well they're implemented and what features they're missing. This can range from small nitpicks to issues that are the main focus of the community. On the flip side, there are also the features that definitively prove conducive to an expeditious development experience and more manageable code base.
+Beyond just looking at what Web Components capabilities are, it's important to look at how well they're implemented and what features they're missing. This can range from small nitpicks to issues that are the main focus of the community. On the flip side, there are also the features that definitively prove conducive to an expeditious development experience and more manageable code base. We'll start with these ones first:
 
 ### Advantages
 
-- Culpa culpa laboris laborum veniam incididunt exercitation cillum ut culpa amet et velit.
-- Culpa culpa laboris laborum veniam incididunt exercitation cillum ut culpa amet et velit.
-- Culpa culpa laboris laborum veniam incididunt exercitation cillum ut culpa amet et velit.
+- Web Components can fit in anywhere.
+  - Due to their nature of extending HTML elements, Web Components can be placed anywhere that HTML is used.
+  - This is applicable to most modern JavaScript frameworks and libraries. Even browser extensions can utilize Web Components.
+- They don't care how content is rendered.
+  - Web Components weren't built around the concept of a render function, therefore, a specific style of rendering can be created by expanding upon the base HTMLElement class. A couple great examples of this include:
+    - Polymer — utilizes a `render()` method, which returns a template, on their `Polymer` class. The method is called when states or specified attributes change.
+    - Haunted — utilizes function components based on React's Hooks style to create Web Components that rerender on dependency changes.
+- They support bi-directional data flow.
+  - Web Components 
 
 ### Disadvantages
 
