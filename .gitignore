@@ -70,3 +70,6 @@ yarn-error.log
 
 # VS code config
 .vscode/
+
+# WebStorm config
+.idea/
