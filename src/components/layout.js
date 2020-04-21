@@ -25,22 +25,24 @@ class Layout extends React.Component {
               color: `inherit`,
               fontFamily: 'Montserrat',
               fontWeight: 900,
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'baseline',
             }}
             to={`/`}
             aria-label="The Brownie Blog"
           >
-            <span>The Br</span>
-            <img
-              src={logo}
-              alt=""
-              style={{
-                transform: 'translateY(0.25rem)',
-              }}
-            />
-            <span>wnie Blog</span>
+            <span>The&#32;</span>
+            <span style={{ whiteSpace: 'nowrap' }}>
+              Br
+              <img
+                src={logo}
+                alt=""
+                style={{
+                  marginBottom: 'auto',
+                  transform: 'translateY(0.25rem)',
+                }}
+              />
+              wnie
+            </span>
+            <span>&#32;Blog</span>
           </Link>
         </h1>
       )
