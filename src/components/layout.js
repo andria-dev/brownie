@@ -5,7 +5,7 @@ import { rhythm, scale } from '../utils/typography'
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children, logo } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -25,10 +25,22 @@ class Layout extends React.Component {
               color: `inherit`,
               fontFamily: 'Montserrat',
               fontWeight: 900,
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'baseline',
             }}
             to={`/`}
+            aria-label="The Brownie Blog"
           >
-            {title}
+            <span>The Br</span>
+            <img
+              src={logo}
+              alt=""
+              style={{
+                transform: 'translateY(0.25rem)',
+              }}
+            />
+            <span>wnie Blog</span>
           </Link>
         </h1>
       )

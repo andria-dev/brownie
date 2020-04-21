@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 import PublicationInfo from '../components/publicationInfo'
 import { rhythm, scale } from '../utils/typography'
 
-console.log('PROCESS.ENV.NODE_ENV is:', process.env.NODE_ENV)
+import logo from '../../content/assets/logo.svg'
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} logo={logo}>
         <SEO title="All posts" />
         <Bio />
         {posts.map(({ node }) => {
@@ -32,7 +32,7 @@ class BlogIndex extends React.Component {
             <div key={node.fields.slug}>
               <h3
                 style={{
-                  marginBottom: rhythm(1 / 4)
+                  marginBottom: rhythm(1 / 4),
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -45,7 +45,7 @@ class BlogIndex extends React.Component {
                   display: `block`,
                   marginLeft: rhythm(1 / 8),
                   marginBottom: 0,
-                  opacity: 0.8
+                  opacity: 0.8,
                 }}
               >
                 <PublicationInfo
@@ -61,7 +61,7 @@ class BlogIndex extends React.Component {
                       marginBottom: 0,
                       opacity: 0.8,
                       fontWeight: 600,
-                      fontFamily: 'sans-serif'
+                      fontFamily: 'sans-serif',
                     }}
                   >
                     <span aria-hidden="true">·</span> DRAFT
@@ -70,7 +70,7 @@ class BlogIndex extends React.Component {
               </small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt
+                  __html: node.frontmatter.description || node.excerpt,
                 }}
               />
             </div>
