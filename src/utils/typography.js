@@ -1,20 +1,23 @@
 import Typography from 'typography'
-import Wordpress2016 from 'typography-theme-wordpress-2016'
+import TypographyTheme from 'typography-theme-wordpress-2016'
 
-Wordpress2016.overrideThemeStyles = () => {
+TypographyTheme.overrideThemeStyles = () => {
   return {
     'a.gatsby-resp-image-link': {
-      boxShadow: `none`
+      boxShadow: `none`,
     },
     li: {
-      marginBottom: 0
-    }
+      marginBottom: 0,
+    },
   }
 }
 
-delete Wordpress2016.googleFonts
+TypographyTheme.baseFontSize = '18px'
+TypographyTheme.headerWeight = 700
+// TypographyTheme.headerFontFamily = ['Montserrat', ...TypographyTheme.headerFontFamily]
+console.log(TypographyTheme)
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(TypographyTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

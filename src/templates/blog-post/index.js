@@ -6,11 +6,9 @@ import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import PublicationInfo from '../../components/publicationInfo'
 
-import { renderAST } from '../../components/BlogPostComponents'
-
 import { rhythm, scale } from '../../utils/typography'
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
-import './styles.css';
+import './styles.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -33,7 +31,7 @@ class BlogPostTemplate extends React.Component {
               marginBottom: 0,
               opacity: 0.8,
               fontWeight: 'bold',
-              fontFamily: 'sans-serif'
+              fontFamily: 'sans-serif',
             }}
           >
             DRAFT
@@ -42,7 +40,7 @@ class BlogPostTemplate extends React.Component {
         <h1
           style={{
             marginTop: post.frontmatter.published ? rhythm(1) : 0,
-            marginBottom: 0
+            marginBottom: 0,
           }}
         >
           {post.frontmatter.title}
@@ -53,7 +51,7 @@ class BlogPostTemplate extends React.Component {
             display: `block`,
             marginLeft: rhythm(1 / 8),
             marginBottom: rhythm(1),
-            opacity: 0.8
+            opacity: 0.8,
           }}
         >
           <PublicationInfo
@@ -63,11 +61,11 @@ class BlogPostTemplate extends React.Component {
           />
         </p>
 
-        {renderAST(post.htmlAst)}
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <hr
           style={{
-            marginBottom: rhythm(1)
+            marginBottom: rhythm(1),
           }}
         />
         <Bio />
@@ -78,7 +76,7 @@ class BlogPostTemplate extends React.Component {
             flexWrap: `wrap`,
             justifyContent: `space-between`,
             listStyle: `none`,
-            padding: 0
+            padding: 0,
           }}
         >
           <li>
@@ -114,11 +112,11 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      htmlAst
+      html
       timeToRead
       frontmatter {
         title
-        date(formatString: "YYYY-MM-DD")
+        date
         formattedDate: date(formatString: "MMMM D, YYYY")
         description
         published
