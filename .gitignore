@@ -73,3 +73,7 @@ yarn-error.log
 
 # WebStorm config
 .idea/
+
+# GraphQL
+.graphqlconfig
+schema.graphql
