@@ -1,7 +1,7 @@
 ---
 title: 'The Current State Of The Future Of Web Development: Web Components'
 description: ''
-date: 2019-11-28
+date: 2020-05-14
 published: false
 ---
 
@@ -11,13 +11,13 @@ published: false
 >
 > — MDN <sup>[1]</sup>
 
-Currently, web components are made up of **`customElements`, the shadow DOM, and HTML templates**.
+Currently, **`customElements`, the shadow DOM, and HTML templates** make up web components.
 
-`customElements` is the registry you use to define your web components as either standalone elements or extensions of existing elements. There are a few extra APIs attached to `customElements` other than `define()` that we won't go into right now. <sup>[2]</sup>
+`customElements` is the registry you would use to define your web components as either standalone elements or extensions of existing elements. There are a few extra APIs attached to `customElements` other than `define()` that we won't go into right now. <sup>[2]</sup>
 
 Then you have the shadow DOM, this is your very own isolated DOM for your custom element. This is what allows things like scoped CSS to be possible. <sup>[3]</sup>
 
-Lastly, we have HTML templates. These are a couple of elements and APIs that are used to make reusable templates. `<template>` is used to keep a copy of your HTML until you render your HTML content to the DOM <sup>[4]</sup>. In conjunction with that, the `<slot>` element is used as a placeholder for content that can be passed into your custom element. <sup>[5]</sup>
+Lastly, we have HTML templates. These are a couple of elements and APIs that are used to make reusable templates. `<template>` is used to keep a copy of your HTML until you render your HTML content to the DOM <sup>[4]</sup>. In conjunction with that, the `<slot>` element, used as a placeholder for content, can be passed into your custom element. <sup>[5]</sup>
 
 ### What can they do?
 

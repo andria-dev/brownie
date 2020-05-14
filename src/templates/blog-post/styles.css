@@ -6,3 +6,8 @@ ul ul {
 li p {
   margin-bottom: 0;
 }
+
+.portrait img {
+  height: auto !important;
+  border-radius: 50%;
+}

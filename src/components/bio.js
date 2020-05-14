@@ -50,10 +50,7 @@ const Bio = () => {
           marginBottom: 0,
           minWidth: 50,
         }}
-        imgStyle={{
-          borderRadius: '50%',
-          height: 'auto',
-        }}
+        className="portrait"
       />
       <p>
         Written by <b>{author}</b>, from the Boise area. Building useful things

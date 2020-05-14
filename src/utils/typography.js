@@ -14,8 +14,6 @@ TypographyTheme.overrideThemeStyles = () => {
 
 TypographyTheme.baseFontSize = '18px'
 TypographyTheme.headerWeight = 700
-// TypographyTheme.headerFontFamily = ['Montserrat', ...TypographyTheme.headerFontFamily]
-console.log(TypographyTheme)
 
 const typography = new Typography(TypographyTheme)
 
