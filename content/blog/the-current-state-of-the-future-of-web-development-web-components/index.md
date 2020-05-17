@@ -45,17 +45,49 @@ Beyond just looking at what Web Components capabilities are, it's important to l
     - Polymer — utilizes a `render()` method, which returns a template, on their `Polymer` class. The method is called when states or specified attributes change.
     - Haunted — utilizes function components based on React's Hooks style to create Web Components that rerender on dependency changes.
 - They support bi-directional data flow.
-  - Web Components 
+TODO: Finish writing these bullets
+  - Web Components <due to nature can do bi-directional data flow>.
+  - I built an example of this, check it out: <link>
 
 ### Disadvantages
 
-- Pariatur voluptate cillum ipsum consequat officia commodo sit excepteur proident sunt tempor adipisicing id.
-- Pariatur voluptate cillum ipsum consequat officia commodo sit excepteur proident sunt tempor adipisicing id.
-- Pariatur voluptate cillum ipsum consequat officia commodo sit excepteur proident sunt tempor adipisicing id.
+TODO: Finish these bullets
+- <event and attribute based stats>
+- <SSR and SSG>
+- <bundling and tools>
+- <doesn't support progressive enhancement>
 
 ### How can we make it better?
 
-Pariatur dolore proident eu reprehenderit laboris velit eiusmod. Minim labore aute fugiat ea eiusmod quis quis pariatur dolore adipisicing. Aliqua enim eu ea pariatur Lorem nulla eu id consectetur tempor sint.
+<Web components are lacking>, <there's a lot to improve>. <It's important to look at successes and failures of the past> with libraries like <jquery, angular, react, vue...>.
+
+#### First let's look at JQuery
+
+<JQuery is huge>. <JQuery is entirely state-framework independent and therefore relies on events>. <Event-only based development is messy>, <doesn't scale well>.
+
+##### How does this compare to Web Components?
+
+<Web Components have attributes>. <Attributes make things better... almost>, <they provide a way to store state as properties passed to an element>. <They don't fix solely event-based development though>.
+
+##### A modal in JQuery:
+
+<Explain the HTML>.
+
+```html
+```
+
+<Explain the JS>.
+
+```js
+```
+
+<Make conclusion>.
+
+#### How does this compare to more modern frameworks and libraries:
+
+##### React
+
+##### Vue
 
 ## Tooling
 
