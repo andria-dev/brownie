@@ -56,7 +56,7 @@ const Bio = () => {
         Written by <b>{author}</b>, from the Boise area. Building useful things
         for the OSS community.
         {` `}
-        Follow his work on{' '}
+        Follow her work on{' '}
         <a href={`https://twitter.com/${social.twitter}`}>
           <span aria-hidden="true">🐦</span> Twitter
         </a>{' '}
