@@ -37,29 +37,34 @@ Beyond just looking at what Web Components capabilities are, it's important to l
 
 ### Advantages
 
-- Web Components can fit in anywhere.
+- Web Components **can fit in anywhere**.
   - Due to their nature of extending HTML elements, Web Components can be placed anywhere that HTML is used.
   - This is applicable to most modern JavaScript frameworks and libraries. Even browser extensions can utilize Web Components.
-- They don't care how content is rendered.
+- They don't care **how content is rendered**.
   - Web Components weren't built around the concept of a render function, therefore, a specific style of rendering can be created by expanding upon the base HTMLElement class. A couple great examples of this include:
     - Polymer — utilizes a `render()` method, which returns a template, on their `Polymer` class. The method is called when states or specified attributes change.
     - Haunted — utilizes function components based on React's Hooks style to create Web Components that rerender on dependency changes.
-- They support bi-directional data flow.
-TODO: Finish writing these bullets
-  - Web Components <due to nature can do bi-directional data flow>.
-  - I built an example of this, check it out: <link>
+- They **support bi-directional data flow**.
+  - Due to Web Components nature of having no input on how you manage state, bi-directional data flow is made possible.
+  - This allows developers to write more reactive code that avoids constant event-handling duplication and manual state management handling
+  - I built an example of this, [check out two-way](https://github.com/ChrisBrownie55/two-way).
 
 ### Disadvantages
 
-TODO: Finish these bullets
-- <event and attribute based stats>
-- <SSR and SSG>
-- <bundling and tools>
-- <doesn't support progressive enhancement>
+- The **lack of state management** in Web Components leaves raw Web Components with only events and attributes
+  - Event-based state management, _without a state-machine or state-chart_, can lead to many errors and hard to manage code.
+- **SSR and SSG are currently limited** because Web Components were built on JavaScript APIs that don't map to regular HTML5 elements. <sup>[7]</sup>
+  - Most options these days that do map to HTML elements are polyfills that are just more userland JavaScript.
+- You will likely have to **abandon all of your bundling and tooling applications** that you're used to in favor of full Web Component frameworks such as:
+  - Stencil.js
+  - The Polymer Project
+  - Or no framework at all
+- **Progressive enhancement is much more difficult** for the same reasons that SSR and SSG are limited.
+  - The inability to remove JavaScript from Web Components makes custom elements _extremely_ difficult to progressively enhance compared to other modern frameworks.
 
 ### How can we make it better?
 
-<Web components are lacking>, <there's a lot to improve>. <It's important to look at successes and failures of the past> with libraries like <jquery, angular, react, vue...>.
+Web Components are lacking many features that make web development itself more intuitive today, all in all Web Components have a long way to go. To improve upon the _"Custom Elements v1"_ standard, I think it's important to look at the successes and failures of past libraries and frameworks.
 
 #### First let's look at JQuery
 
@@ -112,3 +117,4 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 4. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 5. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 6. https://javascript.info/shadow-dom-events
+7. https://github.com/skatejs/skatejs/tree/master/packages/ssr
