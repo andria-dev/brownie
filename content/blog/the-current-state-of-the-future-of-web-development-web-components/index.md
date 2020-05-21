@@ -124,11 +124,13 @@ closeButtons.forEach(el => {
 })
 ```
 
-<Make conclusion>.
+This method of dealing with application development is very ineffecient and can cost quite a few work hours more to maintain. "Why?" you might ask, because jQuery doesn't come with built-in reactivity. It's a library of functions, many of which map to simple DOM methods.
 
 #### How does this compare to more modern frameworks and libraries:
 
 ##### React
+
+
 
 ##### Vue
 
