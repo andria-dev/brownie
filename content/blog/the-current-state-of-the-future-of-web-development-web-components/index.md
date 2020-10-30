@@ -74,7 +74,7 @@ jQuery is entirely state-framework independent thus relying solely on events for
 
 ##### How does this compare to Web Components?
 
-In comparison, Web Components are also event-based but they also contain attributes. <Attributes make things better... almost>, <they provide a way to store state as properties passed to an element>. <They don't fix solely event-based development though>.
+In comparison, Web Components are also event-based, but they also contain attributes. Attributes make things better... almost. They provide a convenient way to store state as properties passed to an element, however, this doesn't fix solely event-based development though.
 
 ##### A modal in jQuery:
 
@@ -124,11 +124,13 @@ closeButtons.forEach(el => {
 })
 ```
 
-This method of dealing with application development is very ineffecient and can cost quite a few work hours more to maintain. "Why?" you might ask, because jQuery doesn't come with built-in reactivity. It's a library of functions, many of which map to simple DOM methods.
+This method of dealing with application development is very inefficient and can cost quite a few work hours more to maintain. "Why?" you might ask, because jQuery doesn't come with built-in reactivity. It's a library of functions, many of which map to simple DOM methods.
 
 #### How does this compare to more modern frameworks and libraries:
 
 ##### React
+
+For this example, we're going to stick with this super simple idea of simply showing and hiding the modal and avoid focusing on more complex features that a real modal would need.
 
 
 
