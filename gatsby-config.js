@@ -1,28 +1,28 @@
 module.exports = {
   siteMetadata: {
     title: `The Brownie Blog`,
-    author: `Christopher Brown`,
+    author: `Chris Brown`,
     description: `A blog about front-end web development and my life.`,
     siteUrl: `https://chrisbrownie.dev`,
     social: {
       twitter: `ChrisHBrown55`,
-      github: `ChrisBrownie55`
-    }
+      github: `ChrisBrownie55`,
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`
-      }
+        name: `blog`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`
-      }
+        name: `assets`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -31,28 +31,28 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
-        ]
-      }
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-152599942-1`
-      }
+        trackingId: `UA-152599942-1`,
+      },
     },
     `gatsby-plugin-feed`,
     {
@@ -66,17 +66,17 @@ module.exports = {
         display: `minimal-ui`,
         icon: `content/assets/logo.svg`,
         icon_options: {
-          purpose: `maskable any`
-        }
-      }
+          purpose: `maskable any`,
+        },
+      },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
-    }
-  ]
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+  ],
 }
