@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
 		`
 			{
 				allMarkdownRemark(
-					sort: { fields: [frontmatter___date], order: DESC }
+					sort: { fields: [frontmatter___date], order: ASC }
 					limit: 1000
 				) {
 					edges {
@@ -34,19 +34,18 @@ exports.createPages = ({ graphql, actions }) => {
 		// Create blog posts pages.
 		const posts = result.data.allMarkdownRemark.edges.map((post) => post.node)
 		const ifPublished = (post) => post.frontmatter.published
+		console.log(posts)
 
 		posts.forEach((post, index) => {
+			console.log(post.fields.slug, index)
 			const previous =
+				index === 0
+					? null
+					: posts.slice(0, index).slice().reverse().find(ifPublished)
+			const next =
 				index === posts.length - 1
 					? null
 					: posts.slice(index + 1).find(ifPublished)
-			const next =
-				index === 0
-					? null
-					: posts
-							.slice(0, index - 1)
-							.reverse()
-							.find(ifPublished)
 
 			createPage({
 				path: post.fields.slug,
