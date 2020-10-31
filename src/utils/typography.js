@@ -2,14 +2,14 @@ import Typography from 'typography'
 import TypographyTheme from 'typography-theme-wordpress-2016'
 
 TypographyTheme.overrideThemeStyles = () => {
-  return {
-    'a.gatsby-resp-image-link': {
-      boxShadow: `none`,
-    },
-    li: {
-      marginBottom: 0,
-    },
-  }
+	return {
+		'a.gatsby-resp-image-link': {
+			boxShadow: `none`,
+		},
+		li: {
+			marginBottom: 0,
+		},
+	}
 }
 
 TypographyTheme.baseFontSize = '18px'
@@ -19,7 +19,7 @@ const typography = new Typography(TypographyTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
-  typography.injectStyles()
+	typography.injectStyles()
 }
 
 export default typography
