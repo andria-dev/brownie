@@ -1,21 +1,23 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "the-brownie-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "My blog",
+  "version": "0.0.1",
+  "author": "Chris Brown <chris_brown@hey.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ChrisBrownie55/brownie/issues"
   },
   "dependencies": {
     "gatsby": "^2.24.91",
     "gatsby-image": "^2.3.4",
+    "next": "^10.0.0",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
+    "styled-components": "^5.2.1",
     "typeface-merriweather": "^0.0.72",
     "typeface-montserrat": "^0.0.75",
     "typography": "^0.16.19",
@@ -49,18 +51,17 @@
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
-    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "develop": "next",
+    "build": "next build",
+    "serve": "next start",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
   },
   "husky": {
     "hooks": {
