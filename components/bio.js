@@ -17,11 +17,11 @@ const Bio = () => {
 	return (
 		<div className="Bio">
 			<Image
-				onError={nextFallback}
-				src={avatarSrc}
-				unsized
-				alt={author}
 				className="portrait"
+				src={avatarSrc}
+				alt={author}
+				onError={nextFallback}
+				unsized
 			/>
 			<p style={{ margin: `auto 0 auto ${rhythm(1 / 2)}` }}>
 				Written by <b>{author}</b>, from the Boise area. Building useful things
@@ -47,6 +47,7 @@ const Bio = () => {
 				/* Global because next/image is not in this component */
 				:global(.portrait) {
 					width: 75px;
+					min-width: 75px; /* keeps it from going below 75px */
 					height: auto !important;
 					margin-bottom: 0;
 					border-radius: 50%;

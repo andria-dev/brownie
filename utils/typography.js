@@ -9,11 +9,23 @@ TypographyTheme.overrideThemeStyles = () => {
 		li: {
 			marginBottom: 0,
 		},
+		h1: {
+			fontWeight: 900,
+		},
 	}
 }
 
 TypographyTheme.baseFontSize = '18px'
-TypographyTheme.headerWeight = 700
+TypographyTheme.googleFonts = [
+	{
+		name: 'Montserrat',
+		styles: ['700', '900'],
+	},
+	{
+		name: 'Merriweather',
+		styles: ['400', '400i', '700', '700i', '900', '900i'],
+	},
+]
 
 const typography = new Typography(TypographyTheme)
 
