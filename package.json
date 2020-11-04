@@ -8,6 +8,7 @@
     "url": "https://github.com/ChrisBrownie55/brownie/issues"
   },
   "dependencies": {
+    "apollo-server-micro": "^2.19.0",
     "gatsby": "^2.24.91",
     "gatsby-image": "^2.3.4",
     "next": "^10.0.0",
@@ -17,12 +18,20 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
+    "remark-extract-frontmatter": "^3.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
+    "remark-stringify": "^9.0.0",
     "styled-components": "^5.2.1",
     "typeface-merriweather": "^0.0.72",
     "typeface-montserrat": "^0.0.75",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "unified": "^9.2.0",
+    "unist-util-filter": "^2.0.3",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
     "gatsby-cli": "^2.11.13",
