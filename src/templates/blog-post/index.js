@@ -1,19 +1,19 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import {graphql, Link} from 'gatsby'
 
 import Bio from '../../components/bio'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import PublicationInfo from '../../components/publicationInfo'
 
-import { rhythm, scale } from '../../utils/typography'
+import {rhythm, scale} from '../../utils/typography'
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
 import './styles.css'
 
 export default function BlogPostTemplate(props) {
 	const post = props.data.markdownRemark
 	const siteTitle = props.data.site.siteMetadata.title
-	const { previous, next } = props.pageContext
+	const {previous, next} = props.pageContext
 
 	return (
 		<Layout location={props.location} title={siteTitle}>
@@ -60,7 +60,7 @@ export default function BlogPostTemplate(props) {
 				/>
 			</p>
 
-			<div dangerouslySetInnerHTML={{ __html: post.html }} />
+			<div dangerouslySetInnerHTML={{__html: post.html}} />
 
 			<hr
 				style={{
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
 				author
 			}
 		}
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		markdownRemark(fields: {slug: {eq: $slug}}) {
 			id
 			excerpt(pruneLength: 160)
 			html

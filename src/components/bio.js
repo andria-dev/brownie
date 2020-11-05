@@ -5,22 +5,22 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React, {useState} from 'react'
+import {useStaticQuery, graphql} from 'gatsby'
 import Image from 'gatsby-image'
 
-import { rhythm } from '../utils/typography'
+import {rhythm} from '../utils/typography'
 
 const Bio = () => {
 	const data = useStaticQuery(graphql`
 		query BioAndAvatarQuery {
-			avatarAVIF: file(absolutePath: { regex: "/profile-pic.avif/" }) {
+			avatarAVIF: file(absolutePath: {regex: "/profile-pic.avif/"}) {
 				publicURL
 			}
-			avatarWEBP: file(absolutePath: { regex: "/profile-pic.webp/" }) {
+			avatarWEBP: file(absolutePath: {regex: "/profile-pic.webp/"}) {
 				publicURL
 			}
-			avatarJPG: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+			avatarJPG: file(absolutePath: {regex: "/profile-pic.jpg/"}) {
 				publicURL
 			}
 
@@ -36,8 +36,8 @@ const Bio = () => {
 		}
 	`)
 
-	const { author, social } = data.site.siteMetadata
-	const { avatarAVIF, avatarWEBP, avatarJPG } = data
+	const {author, social} = data.site.siteMetadata
+	const {avatarAVIF, avatarWEBP, avatarJPG} = data
 	const [src, setSrc] = useState(avatarAVIF)
 
 	function nextFallback() {
@@ -69,7 +69,7 @@ const Bio = () => {
 				}}
 				className="portrait"
 			/>
-			<p style={{ margin: 'auto 0' }}>
+			<p style={{margin: 'auto 0'}}>
 				Written by <b>{author}</b>, from the Boise area. Building useful things
 				for the OSS community.
 				{` `}

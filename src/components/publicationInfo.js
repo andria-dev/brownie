@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PublicationInfo({ date, formattedDate, timeToRead }) {
+function PublicationInfo({date, formattedDate, timeToRead}) {
 	return (
 		<>
 			<time dateTime={date}>{formattedDate}</time>{' '}

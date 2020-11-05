@@ -18,6 +18,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
+    "reading-time": "^1.2.0",
     "remark-extract-frontmatter": "^3.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-html": "^13.0.1",

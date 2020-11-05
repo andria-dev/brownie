@@ -3,16 +3,17 @@ import remark from 'remark-parse'
 import stringify from 'remark-stringify'
 
 import frontmatter from 'remark-frontmatter'
-import { parse as yaml } from 'yaml'
+import {parse as yaml} from 'yaml'
 
 import extractFrontmatter from 'remark-extract-frontmatter'
 import filter from 'unist-util-filter'
 
 import html from 'remark-html'
+import readingTime from 'reading-time'
 
-import { readdirSync, readFileSync } from 'fs'
-import { join } from 'path'
-import { cwd } from 'process'
+import {readdirSync, readFileSync} from 'fs'
+import {join} from 'path'
+import {cwd} from 'process'
 
 export const rawPosts = {}
 const slugs = readdirSync(join(cwd(), './content/blog'), {
@@ -38,14 +39,22 @@ export function parse(slug) {
 		.use(remark)
 		.use(stringify)
 		.use(frontmatter)
-		.use(extractFrontmatter, { yaml })
+		.use(extractFrontmatter, {yaml})
 		.use(removeFrontmatter)
 		.use(html)
 		.process(rawPosts[slug])
 		.then((result) => ({
 			slug,
-			html: result.contents,
-			frontmatter: result.data,
+			content: {
+				title: result.data.title,
+				description: result.data.description || null,
+				html: result.contents,
+			},
+			stats: {
+				date: result.data.date,
+				published: result.data.published,
+				timeToRead: readingTime(rawPosts[slug]),
+			},
 		}))
 		.catch((error) => {
 			console.error(error)

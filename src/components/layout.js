@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import {Link} from 'gatsby'
 
-import { rhythm, scale } from '../utils/typography'
+import {rhythm, scale} from '../utils/typography'
 
 class Layout extends React.Component {
 	render() {
-		const { location, title, children, logo } = this.props
+		const {location, title, children, logo} = this.props
 		const rootPath = `${__PATH_PREFIX__}/`
 		let header
 
@@ -30,7 +30,7 @@ class Layout extends React.Component {
 						aria-label="The Brownie Blog"
 					>
 						<span>The&#32;</span>
-						<span style={{ whiteSpace: 'nowrap' }}>
+						<span style={{whiteSpace: 'nowrap'}}>
 							Br
 							<img
 								src={logo}
