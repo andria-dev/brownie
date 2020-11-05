@@ -2,19 +2,17 @@ import React from 'react'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
-import { SEO } from '../components/seo'
-import { PublicationInfo } from '../components/publicationInfo'
+import {SEO} from '../components/seo'
+import {PublicationInfo} from '../components/publicationInfo'
 
-import { rhythm, scale } from '../utils/typography'
+import {rhythm, scale} from '../utils/typography'
 
-export default function HomePage() {
-	const posts = []
-
+export default function HomePage({posts}) {
 	return (
 		<Layout>
 			<SEO title="All posts" />
 			<Bio />
-			{posts.map(({ node }) => {
+			{posts.map(({node}) => {
 				if (
 					!node.frontmatter.published &&
 					process.env.NODE_ENV === 'production'
@@ -30,7 +28,7 @@ export default function HomePage() {
 								marginBottom: rhythm(1 / 4),
 							}}
 						>
-							<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+							<Link style={{boxShadow: `none`}} to={node.fields.slug}>
 								{title}
 							</Link>
 						</h3>
@@ -75,30 +73,27 @@ export default function HomePage() {
 	)
 }
 
-/*export const pageQuery = graphql`
-	query {
-		site {
-			siteMetadata {
-				title
-			}
-		}
-		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-			edges {
-				node {
-					excerpt
-					fields {
-						slug
-					}
-					timeToRead
-					frontmatter {
-						date
-						formattedDate: date(formatString: "MMMM DD, YYYY")
-						title
-						description
-						published
+export async function getStaticProps(context) {
+	const query = gql`
+		query GetPostListings {
+			posts {
+				slug
+				content {
+					title
+					description
+				}
+				stats {
+					date
+					published
+					timeToRead {
+						text
 					}
 				}
 			}
 		}
-	}
-`*/
+	`
+	const {
+		data: {posts},
+	} = await client.query({query})
+	return {props: {posts}}
+}
