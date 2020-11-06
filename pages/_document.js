@@ -1,10 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
-import { TypographyStyle, GoogleFont } from 'react-typography'
+import Document, {Html, Head, Main, NextScript} from 'next/document'
+import {ServerStyleSheet} from 'styled-components'
+import {TypographyStyle, GoogleFont} from 'react-typography'
 import typography from '../utils/typography'
 
 export default class BlogDocument extends Document {
-	static getInitialProps({ renderPage }) {
+	static getInitialProps({renderPage}) {
 		// Step 1: Create an instance of ServerStyleSheet
 		const sheet = new ServerStyleSheet()
 
@@ -17,7 +17,7 @@ export default class BlogDocument extends Document {
 		const styleTags = sheet.getStyleElement()
 
 		// Step 4: Pass styleTags as a prop
-		return { ...page, styleTags }
+		return {...page, styleTags}
 	}
 
 	render() {

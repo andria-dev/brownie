@@ -10,7 +10,7 @@ import Head from 'next/head'
 
 import siteInfo from '../content/site-info.json'
 
-export function SEO({ title, description }) {
+export function SEO({title, description}) {
 	const metaDescription = description || siteInfo.description
 
 	return (

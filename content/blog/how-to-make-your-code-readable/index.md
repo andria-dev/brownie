@@ -1,6 +1,6 @@
 ---
-title: How to Make Your Code Readable
-description: Just because a machine can read it doesn't mean it's good
+title: How to Make Your Code Readable
+description: Just because a machine can read it doesn't mean it's good
 date: 2018-06-30
 published: true
 ---
