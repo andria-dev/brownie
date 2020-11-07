@@ -16,19 +16,19 @@ export default function Layout({children}) {
 					marginBottom: rhythm(1.5),
 					marginTop: 0,
 				}}
+				className="blog-title blog-title--inactive"
 			>
 				<Link
 					style={{
 						boxShadow: 'none',
 						textDecoration: 'none',
-						color: 'inherit',
 						fontFamily: 'Montserrat',
 						fontWeight: 900,
 					}}
 					href="/"
 					aria-label="The Brownie Blog"
 				>
-					<>
+					<a>
 						<span>The&#32;</span>
 						<span style={{whiteSpace: 'nowrap'}}>
 							Br
@@ -43,42 +43,63 @@ export default function Layout({children}) {
 							wnie
 						</span>
 						<span>&#32;Blog</span>
-					</>
+					</a>
 				</Link>
 			</h1>
 		)
 	} else {
 		header = (
-			<h3>
-				<Link
-					style={{
-						boxShadow: 'none',
-						textDecoration: 'none',
-						color: 'inherit',
-					}}
-					href="/"
-				>
-					{siteInfo.title}
+			<h3 className="blog-title">
+				<Link href="/">
+					<a>{siteInfo.title}</a>
 				</Link>
 			</h3>
 		)
 	}
 
 	return (
-		<div
-			style={{
-				marginLeft: 'auto',
-				marginRight: 'auto',
-				maxWidth: rhythm(24),
-				padding: `${rhythm(1.5)} ${rhythm(3 / 4)} ${rhythm(4)}`,
-			}}
-		>
+		<div className="app-wrapper">
 			<header>{header}</header>
 			<main>{children}</main>
-			<footer>
-				© {new Date().getFullYear()}, Built with{' '}
-				<a href="https://www.gatsbyjs.org">Gatsby</a>
+			<footer style={{marginTop: 40}}>
+				© {new Date().getFullYear()} Chris Brown, Built with{' '}
+				<a href="https://nextjs.org" rel="nofollow">
+					<i>Next.JS</i>
+				</a>{' '}
+				and{' '}
+				<a href="https://www.apollographql.com" rel="nofollow">
+					<i>Apollo</i>
+				</a>
+				.
 			</footer>
+			<style jsx global>{`
+				.blog-title a {
+					color: #333;
+					box-shadow: none;
+					overflow: hidden;
+				}
+
+				.blog-title--inactive a {
+					background-clip: text;
+					background-position-x: 147px !important;
+					background: linear-gradient(to right, #668afe, #668afe 50%, #333 50%);
+
+					transition: background-position 300ms ease;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+
+				.blog-title a:hover {
+					background-position-x: 500px !important;
+				}
+
+				.app-wrapper {
+					margin-left: auto;
+					margin-right: auto;
+					max-width: ${rhythm(24)};
+					padding: ${rhythm(1.5)} ${rhythm(3 / 4)} ${rhythm(4)};
+				}
+			`}</style>
 		</div>
 	)
 }

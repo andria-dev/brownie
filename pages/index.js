@@ -1,16 +1,16 @@
-import Link from 'next/link'
 import {client, gql} from '../utils/graphql-client'
 
-import Bio from '../components/bio'
+import {Bio} from '../components/bio'
 import Layout from '../components/layout'
 import {SEO} from '../components/seo'
 import {PostListing} from '../components/post-listing'
+import {rhythm} from '../utils/typography'
 
 export default function HomePage({posts}) {
 	return (
 		<Layout>
 			<SEO title="All posts" />
-			<Bio />
+			<Bio style={{marginBottom: rhythm(2.5)}} />
 			{posts.map((post) => (
 				<PostListing post={post} key={post.slug} />
 			))}

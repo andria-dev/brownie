@@ -11,7 +11,9 @@ export function PostListing({post: {slug, content, stats}}) {
 		return (
 			<div className="post-listing">
 				<h3 className="title">
-					<Link href={slug}>{content.title}</Link>
+					<Link href={slug}>
+						<a>{content.title}</a>
+					</Link>
 				</h3>
 				<small className="stats" style={scale(-1 / 5)}>
 					<PublicationInfo

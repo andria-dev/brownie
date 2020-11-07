@@ -22,6 +22,7 @@
     "remark-frontmatter": "^3.0.0",
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
+    "remark-prism": "^1.1.17",
     "remark-stringify": "^9.0.0",
     "styled-components": "^5.2.1",
     "typeface-merriweather": "^0.0.72",

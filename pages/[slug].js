@@ -1,12 +1,17 @@
-import Layout from '../components/layout'
-import {SEO} from '../components/seo'
-import {rhythm, scale} from '../utils/typography'
-import {PublicationInfo} from '../components/publication-info'
-import Bio from '../components/bio'
-import {rawPosts} from '../utils/markdown'
-import {gql, client} from '../utils/graphql-client'
+import Link from 'next/link'
 
-export default function BlogPost({post: {slug, content, stats, context}}) {
+import {Bio} from '../components/bio'
+import {SEO} from '../components/seo'
+import Layout from '../components/layout'
+import {PublicationInfo} from '../components/publication-info'
+
+import {postsPromise} from '../utils/markdown'
+import {gql, client} from '../utils/graphql-client'
+import {rhythm, scale} from '../utils/typography'
+
+import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
+
+export default function BlogPost({post: {content, stats, context}}) {
 	return (
 		<Layout title={content.title}>
 			<SEO
@@ -49,48 +54,43 @@ export default function BlogPost({post: {slug, content, stats, context}}) {
 			</p>
 
 			<div dangerouslySetInnerHTML={{__html: content.html}} />
+			<hr style={{margin: `${rhythm(2)} 0`}} />
 
-			<hr
+			<Bio style={{marginBottom: rhythm(1)}} />
+			<ul
 				style={{
-					marginBottom: rhythm(1),
+					display: `flex`,
+					flexWrap: `wrap`,
+					justifyContent: `space-between`,
+					listStyle: `none`,
+					padding: 0,
 				}}
-			/>
-			<Bio />
-
-			{/*<ul*/}
-			{/*		style={{*/}
-			{/*			display: `flex`,*/}
-			{/*			flexWrap: `wrap`,*/}
-			{/*			justifyContent: `space-between`,*/}
-			{/*			listStyle: `none`,*/}
-			{/*			padding: 0,*/}
-			{/*		}}*/}
-			{/*>*/}
-			{/*	<li>*/}
-			{/*		{previous && (*/}
-			{/*				<Link to={previous.fields.slug} rel="prev">*/}
-			{/*					← {previous.frontmatter.title}*/}
-			{/*				</Link>*/}
-			{/*		)}*/}
-			{/*	</li>*/}
-			{/*	<li>*/}
-			{/*		{next && (*/}
-			{/*				<Link to={next.fields.slug} rel="next">*/}
-			{/*					{next.frontmatter.title} →*/}
-			{/*				</Link>*/}
-			{/*		)}*/}
-			{/*	</li>*/}
-			{/*</ul>*/}
+			>
+				<li>
+					{context.previous && (
+						<Link href={context.previous.slug} rel="prev">
+							<a>← {context.previous.content.title}</a>
+						</Link>
+					)}
+				</li>
+				<li>
+					{context.next && (
+						<Link href={'/' + context.next.slug} rel="next">
+							<a>{context.next.content.title} →</a>
+						</Link>
+					)}
+				</li>
+			</ul>
 		</Layout>
 	)
 }
 
 export async function getStaticPaths() {
 	return {
-		paths: Object.keys(rawPosts).map((slug) => ({
-			params: {slug},
+		paths: (await postsPromise).map((post) => ({
+			params: {slug: post.slug},
 		})),
-		fallback: false, // See the "fallback" section below
+		fallback: false,
 	}
 }
 
@@ -108,6 +108,20 @@ export async function getStaticProps({params}) {
 					published
 					timeToRead {
 						text
+					}
+				}
+				context {
+					previous {
+						slug
+						content {
+							title
+						}
+					}
+					next {
+						slug
+						content {
+							title
+						}
 					}
 				}
 			}

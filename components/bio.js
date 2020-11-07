@@ -5,7 +5,7 @@ import {rhythm} from '../utils/typography'
 import siteInfo from '../content/site-info.json'
 const avatar = '/assets/profile-pic'
 
-const Bio = () => {
+export function Bio(props) {
 	const {author, social} = siteInfo
 
 	const [avatarSrc, setAvatarSrc] = useState(`${avatar}.avif`)
@@ -15,7 +15,7 @@ const Bio = () => {
 	}
 
 	return (
-		<div className="Bio">
+		<div className="Bio" {...props}>
 			<Image
 				className="portrait"
 				src={avatarSrc}
@@ -41,7 +41,6 @@ const Bio = () => {
 				.Bio {
 					display: flex;
 					align-items: center;
-					margin-bottom: ${rhythm(2.5)};
 				}
 
 				.Bio > :global(div:first-child) {
@@ -60,5 +59,3 @@ const Bio = () => {
 		</div>
 	)
 }
-
-export default Bio

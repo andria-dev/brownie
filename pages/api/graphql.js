@@ -1,5 +1,5 @@
 import {ApolloServer, gql} from 'apollo-server-micro'
-import {rawPosts, parse} from '../../utils/markdown'
+import {postsPromise} from '../../utils/markdown'
 import {GraphQLScalarType} from 'graphql'
 
 const typeDefinitions = gql`
@@ -10,6 +10,7 @@ const typeDefinitions = gql`
 		slug: String!
 		content: PostContent!
 		stats: PostStatistics!
+		context: PageContext!
 	}
 
 	type PostContent {
@@ -31,6 +32,11 @@ const typeDefinitions = gql`
 		words: Int!
 	}
 
+	type PageContext {
+		previous: Post
+		next: Post
+	}
+
 	type Query {
 		posts: [Post]!
 		post(slug: String!): Post
@@ -39,24 +45,16 @@ const typeDefinitions = gql`
 
 const resolvers = {
 	Query: {
-		async posts() {
-			const posts = await Promise.all(
-				Object.keys(rawPosts).map((slug) => resolvers.Query.post(null, {slug})),
-			)
-			return posts
-				.filter((post) => post !== null)
-				.sort((postA, postB) => {
-					// descending order (newest first)
-					return new Date(postB.stats.date) - new Date(postA.stats.date)
-				})
+		posts() {
+			return postsPromise
 		},
-		post(parent, {slug}) {
-			return parse(slug)
+		async post(parent, {slug}) {
+			return (await postsPromise).find((post) => post.slug === slug)
 		},
 	},
 	Date: new GraphQLScalarType({
 		name: 'Date',
-		description: 'Takes in 2020-11-04 and outputs Date object',
+		description: 'Takes in 2020-11-04 and November 4, 2020',
 		serialize(value) {
 			// Move one day forward since toLocaleDateString is not UTC
 			const nextDay = new Date(value).getTime() + 24 * 60 * 60 * 1000
