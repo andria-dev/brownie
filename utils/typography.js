@@ -7,10 +7,17 @@ TypographyTheme.overrideThemeStyles = () => {
 			boxShadow: `none`,
 		},
 		li: {
+			paddingLeft: '10px !important',
 			marginBottom: 0,
 		},
 		h1: {
 			fontWeight: 900,
+		},
+		pre: {
+			marginBottom: '1.75rem !important',
+		},
+		code: {
+			lineHeight: '1.25rem !important',
 		},
 	}
 }
