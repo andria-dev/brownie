@@ -57,23 +57,15 @@ export default function BlogPost({post: {content, stats, context}}) {
 			<hr style={{margin: `${rhythm(2)} 0`}} />
 
 			<Bio style={{marginBottom: rhythm(1)}} />
-			<ul
-				style={{
-					display: `flex`,
-					flexWrap: `wrap`,
-					justifyContent: `space-between`,
-					listStyle: `none`,
-					padding: 0,
-				}}
-			>
-				<li>
+			<ul className="page-links">
+				<li className="previous-link">
 					{context.previous && (
 						<Link href={context.previous.slug} rel="prev">
 							<a>← {context.previous.content.title}</a>
 						</Link>
 					)}
 				</li>
-				<li>
+				<li className="next-link">
 					{context.next && (
 						<Link href={'/' + context.next.slug} rel="next">
 							<a>{context.next.content.title} →</a>
@@ -81,6 +73,29 @@ export default function BlogPost({post: {content, stats, context}}) {
 					)}
 				</li>
 			</ul>
+
+			<style jsx>{`
+				ul ul {
+					margin-left: 2rem;
+					margin-top: 0.25rem;
+				}
+
+				li p {
+					margin-bottom: 0;
+				}
+
+				.page-links {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					list-style: none;
+					padding: 0;
+				}
+
+				.next-link {
+					margin-left: auto;
+				}
+			`}</style>
 		</Layout>
 	)
 }
