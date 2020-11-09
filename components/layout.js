@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 
 import {rhythm, scale} from '../utils/typography'
-import siteInfo from '../content/site-info.json'
+import siteInfo from '../public/site-info.json'
 
 export default function Layout({children}) {
 	const router = useRouter()

@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
+    "apollo-link-schema": "^1.2.5",
     "apollo-server-micro": "^2.19.0",
+    "graphql-tools": "^7.0.1",
     "next": "^10.0.1",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.20.0",
@@ -18,11 +20,14 @@
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
     "reading-time": "^1.2.0",
+    "rehype-parse": "^7.0.1",
+    "rehype-stringify": "^8.0.0",
     "remark-extract-frontmatter": "^3.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
     "remark-prism": "^1.1.17",
+    "remark-rehype": "^8.0.0",
     "remark-stringify": "^9.0.0",
     "styled-components": "^5.2.1",
     "typeface-merriweather": "^0.0.72",
@@ -30,7 +35,10 @@
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19",
     "unified": "^9.2.0",
+    "unist-builder": "^2.0.3",
     "unist-util-filter": "^2.0.3",
+    "unist-util-map": "^2.0.1",
+    "unist-util-visit": "^2.0.3",
     "yaml": "^1.10.0"
   },
   "devDependencies": {
@@ -52,7 +60,7 @@
     "develop": "next",
     "build": "next build",
     "serve": "next start",
-    "format": "prettier --write components/**/*.{js,jsx} pages/**/*.{js,jsx} utils/**/*.{js,jsx}",
+    "format": "prettier --write components/**/*.{js,jsx,json,md} pages/**/*.{js,jsx,json,md} utils/**/*.{js,jsx,json,md} public/**/*.{js,jsx,json,md}",
     "test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
   },
   "husky": {

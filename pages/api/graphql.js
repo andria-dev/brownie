@@ -1,8 +1,8 @@
 import {ApolloServer, gql} from 'apollo-server-micro'
-import {postsPromise} from '../../utils/markdown'
+import {addPageContext, getPosts} from '../../utils/markdown'
 import {GraphQLScalarType} from 'graphql'
 
-const typeDefinitions = gql`
+export const typeDefinitions = gql`
 	scalar Date
 
 	type Post {
@@ -43,13 +43,23 @@ const typeDefinitions = gql`
 	}
 `
 
-const resolvers = {
+const getFilteredPosts = () => {
+	if (process.env.NODE_ENV === 'production') {
+		return getPosts()
+			.then((posts) => posts.filter((post) => post.stats.published))
+			.then(addPageContext)
+	} else {
+		return getPosts().then(addPageContext)
+	}
+}
+export const resolvers = {
 	Query: {
 		posts() {
-			return postsPromise
+			return getFilteredPosts()
 		},
 		async post(parent, {slug}) {
-			return (await postsPromise).find((post) => post.slug === slug)
+			const posts = await getFilteredPosts()
+			return posts.find((post) => post.slug === slug)
 		},
 	},
 	Date: new GraphQLScalarType({
@@ -68,6 +78,7 @@ const resolvers = {
 }
 
 const apolloServer = new ApolloServer({
+	uploads: false,
 	typeDefs: typeDefinitions,
 	resolvers,
 })

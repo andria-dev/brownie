@@ -1,6 +1,5 @@
 import unified from 'unified'
 import remark from 'remark-parse'
-import stringify from 'remark-stringify'
 
 import frontmatter from 'remark-frontmatter'
 import {parse as yaml} from 'yaml'
@@ -8,27 +7,33 @@ import {parse as yaml} from 'yaml'
 import extractFrontmatter from 'remark-extract-frontmatter'
 import filter from 'unist-util-filter'
 
+import map from 'unist-util-map'
 import prism from 'remark-prism'
+
 import html from 'remark-html'
 import readingTime from 'reading-time'
 
 import {readdir, readFile} from 'fs/promises'
 import {join} from 'path'
 import {cwd} from 'process'
+import {escapeHtml} from './escape-html'
+
+function getRawPost(slug) {
+	return readFile(join(cwd(), './public/blog', slug, 'index.md'), {
+		encoding: 'utf8',
+	})
+}
 
 async function getRawPosts() {
 	const slugs = (
-		await readdir(join(cwd(), './content/blog'), {withFileTypes: true})
+		await readdir(join(cwd(), './public/blog'), {withFileTypes: true})
 	)
 		.filter((entity) => entity.isDirectory())
 		.map((entity) => entity.name)
 
 	const rawPosts = {}
 	for (const slug of slugs) {
-		rawPosts[slug] = await readFile(
-			join(cwd(), './content/blog', slug, 'index.md'),
-			{encoding: 'utf8'},
-		)
+		rawPosts[slug] = await getRawPost(slug)
 	}
 	return rawPosts
 }
@@ -47,13 +52,27 @@ async function parsePosts(posts) {
 function parse(slug, rawPost) {
 	return unified()
 		.use(remark)
-		.use(stringify)
 		.use(frontmatter)
 		.use(extractFrontmatter, {yaml})
 		.use(function removeFrontmatter() {
 			return (tree) => filter(tree, (node) => node.type !== 'yaml')
 		})
-		.use(prism)
+		.use(() => {
+			return (tree) =>
+				map(tree, (node) => {
+					if (node.type === 'inlineCode') {
+						// Handle inline code blocks for Prism since remark-prism won't
+						const value = escapeHtml(node.value)
+						return {
+							type: 'html',
+							value: `<code class="language-text">${value}</code>`,
+						}
+					} else {
+						return node
+					}
+				})
+		})
+		.use(prism, {transformInlineCode: true})
 		.use(html)
 		.process(rawPost)
 		.then((result) => ({
@@ -82,7 +101,7 @@ function sortPosts(posts) {
 	})
 }
 
-function addPageContext(posts) {
+export function addPageContext(posts) {
 	return posts.map((post, index, {length}) => {
 		return {
 			...post,
@@ -94,7 +113,6 @@ function addPageContext(posts) {
 	})
 }
 
-export const postsPromise = getRawPosts()
-	.then(parsePosts)
-	.then(sortPosts)
-	.then(addPageContext)
+export function getPosts() {
+	return getRawPosts().then(parsePosts).then(sortPosts)
+}

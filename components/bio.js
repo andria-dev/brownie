@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Image from 'next/image'
 
 import {rhythm} from '../utils/typography'
-import siteInfo from '../content/site-info.json'
+import siteInfo from '../public/site-info.json'
 const avatar = '/assets/profile-pic'
 
 export function Bio(props) {

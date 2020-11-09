@@ -8,7 +8,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-import siteInfo from '../content/site-info.json'
+import siteInfo from '../public/site-info.json'
 
 export function SEO({title, description}) {
 	const metaDescription = description || siteInfo.description

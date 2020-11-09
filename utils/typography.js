@@ -6,9 +6,13 @@ TypographyTheme.overrideThemeStyles = () => {
 		'a.gatsby-resp-image-link': {
 			boxShadow: `none`,
 		},
+		'ul, ol': {
+			marginLeft: '20px !important',
+			listStylePosition: 'outside',
+		},
 		li: {
-			paddingLeft: '10px !important',
-			marginBottom: 0,
+			paddingLeft: '6px !important',
+			marginBottom: '2px',
 		},
 		h1: {
 			fontWeight: 900,

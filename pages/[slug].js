@@ -5,7 +5,6 @@ import {SEO} from '../components/seo'
 import Layout from '../components/layout'
 import {PublicationInfo} from '../components/publication-info'
 
-import {postsPromise} from '../utils/markdown'
 import {gql, client} from '../utils/graphql-client'
 import {rhythm, scale} from '../utils/typography'
 
@@ -53,7 +52,10 @@ export default function BlogPost({post: {content, stats, context}}) {
 				<PublicationInfo date={stats.date} timeToRead={stats.timeToRead.text} />
 			</p>
 
-			<div dangerouslySetInnerHTML={{__html: content.html}} />
+			<article
+				className="article-content"
+				dangerouslySetInnerHTML={{__html: content.html}}
+			/>
 			<hr style={{margin: `${rhythm(2)} 0`}} />
 
 			<Bio style={{marginBottom: rhythm(1)}} />
@@ -95,14 +97,32 @@ export default function BlogPost({post: {content, stats, context}}) {
 				.next-link {
 					margin-left: auto;
 				}
+
+				.article-content :global(img) {
+					display: block;
+					max-width: 200px;
+					margin: 0 auto;
+				}
+
+				.article-content :global(img.large) {
+					max-width: 590px;
+				}
 			`}</style>
 		</Layout>
 	)
 }
 
 export async function getStaticPaths() {
+	const query = gql`
+		query GetSlugs {
+			posts {
+				slug
+			}
+		}
+	`
+	const {data} = await client.query({query})
 	return {
-		paths: (await postsPromise).map((post) => ({
+		paths: data.posts.map((post) => ({
 			params: {slug: post.slug},
 		})),
 		fallback: false,
