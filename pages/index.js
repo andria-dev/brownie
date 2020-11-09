@@ -6,11 +6,11 @@ import {SEO} from '../components/seo'
 import {PostListing} from '../components/post-listing'
 import {rhythm} from '../utils/typography'
 
-export default function HomePage({posts}) {
+export default function HomePage({posts, siteMetadata}) {
 	return (
-		<Layout>
-			<SEO title="All posts" />
-			<Bio style={{marginBottom: rhythm(2.5)}} />
+		<Layout siteMetadata={siteMetadata}>
+			<SEO title="All posts" siteMetadata={siteMetadata} />
+			<Bio style={{marginBottom: rhythm(2.5)}} siteMetadata={siteMetadata} />
 			{posts.map((post) => (
 				<PostListing post={post} key={post.slug} />
 			))}
@@ -34,6 +34,9 @@ export async function getStaticProps() {
 						text
 					}
 				}
+			}
+			siteMetadata {
+				...Metadata
 			}
 		}
 	`

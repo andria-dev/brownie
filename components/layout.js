@@ -2,9 +2,8 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 
 import {rhythm, scale} from '../utils/typography'
-import siteInfo from '../public/site-info.json'
 
-export default function Layout({children}) {
+export default function Layout({siteMetadata, children}) {
 	const router = useRouter()
 	let header
 
@@ -51,7 +50,7 @@ export default function Layout({children}) {
 		header = (
 			<h3 className="blog-title">
 				<Link href="/">
-					<a>{siteInfo.title}</a>
+					<a>{siteMetadata.title}</a>
 				</Link>
 			</h3>
 		)

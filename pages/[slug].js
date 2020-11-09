@@ -10,12 +10,16 @@ import {rhythm, scale} from '../utils/typography'
 
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
 
-export default function BlogPost({post: {content, stats, context}}) {
+export default function BlogPost({
+	post: {content, stats, context},
+	siteMetadata,
+}) {
 	return (
-		<Layout title={content.title}>
+		<Layout title={content.title} siteMetadata={siteMetadata}>
 			<SEO
 				title={content.title}
 				description={content.description || 'A post by Chris Brown'}
+				siteMetadata={siteMetadata}
 			/>
 			{!stats.published ? (
 				<p
@@ -58,7 +62,7 @@ export default function BlogPost({post: {content, stats, context}}) {
 			/>
 			<hr style={{margin: `${rhythm(2)} 0`}} />
 
-			<Bio style={{marginBottom: rhythm(1)}} />
+			<Bio style={{marginBottom: rhythm(1)}} siteMetadata={siteMetadata} />
 			<ul className="page-links">
 				<li className="previous-link">
 					{context.previous && (
@@ -159,6 +163,10 @@ export async function getStaticProps({params}) {
 						}
 					}
 				}
+			}
+
+			siteMetadata {
+				...Metadata
 			}
 		}
 	`

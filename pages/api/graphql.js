@@ -37,9 +37,34 @@ export const typeDefinitions = gql`
 		next: Post
 	}
 
+	type SiteMetadata {
+		title: String
+		author: String
+		description: String
+		siteURL: String
+		social: Social
+	}
+
+	type Social {
+		twitter: String
+		github: String
+	}
+
+	fragment Metadata on SiteMetadata {
+		title
+		author
+		description
+		siteURL
+		social {
+			twitter
+			github
+		}
+	}
+
 	type Query {
 		posts: [Post]!
 		post(slug: String!): Post
+		siteMetadata: SiteMetadata
 	}
 `
 
@@ -60,6 +85,18 @@ export const resolvers = {
 		async post(parent, {slug}) {
 			const posts = await getFilteredPosts()
 			return posts.find((post) => post.slug === slug)
+		},
+		siteMetadata() {
+			return {
+				title: 'The Brownie Blog',
+				author: 'Chris Brown',
+				description: 'A blog about front-end web development and my life.',
+				siteURL: 'https://chrisbrownie.dev',
+				social: {
+					twitter: 'ChrisHBrown55',
+					github: 'ChrisBrownie55',
+				},
+			}
 		},
 	},
 	Date: new GraphQLScalarType({
