@@ -13,10 +13,12 @@ import prism from 'remark-prism'
 import html from 'remark-html'
 import readingTime from 'reading-time'
 
-import {readdir, readFile} from 'fs/promises'
+import {promises as fs} from 'fs'
 import {join} from 'path'
 import {cwd} from 'process'
 import {escapeHtml} from './escape-html'
+
+const {readdir, readFile} = fs
 
 function getRawPost(slug) {
 	return readFile(join(cwd(), './public/blog', slug, 'index.md'), {

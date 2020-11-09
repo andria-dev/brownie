@@ -70,5 +70,11 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "prettier --write"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "volta": {
+    "node": "12.19.0"
   }
 }
