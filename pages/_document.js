@@ -25,6 +25,7 @@ export default class BlogDocument extends Document {
 		return (
 			<Html lang="en-US">
 				<Head>
+					<meta charSet="UTF-8" />
 					{this.props.styleTags}
 					<TypographyStyle typography={typography} />
 					<GoogleFont typography={typography} />
