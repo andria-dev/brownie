@@ -77,3 +77,6 @@ yarn-error.log
 # GraphQL
 .graphqlconfig
 schema.graphql
+
+.next/
+.vercel/
