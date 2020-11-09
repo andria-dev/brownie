@@ -50,17 +50,6 @@ export const typeDefinitions = gql`
 		github: String
 	}
 
-	fragment Metadata on SiteMetadata {
-		title
-		author
-		description
-		siteURL
-		social {
-			twitter
-			github
-		}
-	}
-
 	type Query {
 		posts: [Post]!
 		post(slug: String!): Post

@@ -5,10 +5,11 @@ import {SEO} from '../components/seo'
 import Layout from '../components/layout'
 import {PublicationInfo} from '../components/publication-info'
 
-import {gql, client} from '../utils/graphql-client'
+import {gql, client} from '../utils/graphql/client'
 import {rhythm, scale} from '../utils/typography'
 
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
+import {GET_POST} from '../utils/graphql/queries'
 
 export default function BlogPost({
 	post: {content, stats, context},
@@ -134,42 +135,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-	const query = gql`
-		query GetPost($slug: String!) {
-			post(slug: $slug) {
-				content {
-					title
-					description
-					html
-				}
-				stats {
-					date
-					published
-					timeToRead {
-						text
-					}
-				}
-				context {
-					previous {
-						slug
-						content {
-							title
-						}
-					}
-					next {
-						slug
-						content {
-							title
-						}
-					}
-				}
-			}
-
-			siteMetadata {
-				...Metadata
-			}
-		}
-	`
+	const query = GET_POST
 
 	const variables = {slug: params.slug}
 	const {data} = await client.query({query, variables})
