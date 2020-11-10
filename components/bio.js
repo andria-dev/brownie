@@ -1,23 +1,13 @@
-import React, {useState} from 'react'
 import Image from 'next/image'
-
 import {rhythm} from '../utils/typography'
-const avatar = '/assets/profile-pic'
 
 export function Bio({siteMetadata: {author, social}, ...props}) {
-	const [avatarSrc, setAvatarSrc] = useState(`${avatar}.avif`)
-	function nextFallback() {
-		if (avatarSrc.endsWith('.avif')) setAvatarSrc(`${avatar}.webp`)
-		else if (avatarSrc.endsWith('.webp')) setAvatarSrc(`${avatar}.jpg`)
-	}
-
 	return (
 		<div className="Bio" {...props}>
 			<Image
 				className="portrait"
-				src={avatarSrc}
+				src="/assets/profile-pic.jpg"
 				alt={author}
-				onError={nextFallback}
 				width={75}
 				height={75}
 				layout="fixed"

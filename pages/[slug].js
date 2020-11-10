@@ -106,6 +106,7 @@ export default function BlogPost({
 				.article-content :global(img) {
 					display: block;
 					max-width: 200px;
+					width: 100%;
 					margin: 0 auto;
 				}
 
