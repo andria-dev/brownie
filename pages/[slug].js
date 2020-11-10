@@ -63,7 +63,11 @@ export default function BlogPost({
 			/>
 			<hr style={{margin: `${rhythm(2)} 0`}} />
 
-			<Bio style={{marginBottom: rhythm(1)}} siteMetadata={siteMetadata} />
+			<Bio
+				style={{marginBottom: rhythm(1)}}
+				siteMetadata={siteMetadata}
+				priority={false}
+			/>
 			<ul className="page-links">
 				<li className="previous-link">
 					{context.previous && (

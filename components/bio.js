@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import {rhythm} from '../utils/typography'
 
-export function Bio({siteMetadata: {author, social}, ...props}) {
+export function Bio({
+	siteMetadata: {author, social},
+	priority = true,
+	...props
+}) {
 	return (
 		<div className="Bio" {...props}>
 			<Image
@@ -11,6 +15,7 @@ export function Bio({siteMetadata: {author, social}, ...props}) {
 				width={75}
 				height={75}
 				layout="fixed"
+				priority={priority}
 			/>
 			<p style={{margin: `auto 0 auto ${rhythm(1 / 2)}`}}>
 				Written by <b>{author}</b>, from the Boise area. Building useful things
