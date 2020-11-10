@@ -1,66 +1,67 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "the-brownie-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "My blog",
+  "version": "0.0.1",
+  "author": "Chris Brown <chris_brown@hey.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ChrisBrownie55/brownie/issues"
   },
   "dependencies": {
-    "gatsby": "^2.24.91",
-    "gatsby-image": "^2.3.4",
+    "@apollo/client": "^3.2.5",
+    "apollo-link-schema": "^1.2.5",
+    "apollo-server-micro": "^2.19.0",
+    "graphql-tools": "^7.0.1",
+    "next": "^10.0.1",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
+    "reading-time": "^1.2.0",
+    "rehype-parse": "^7.0.1",
+    "rehype-stringify": "^8.0.0",
+    "remark-extract-frontmatter": "^3.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
+    "remark-prism": "^1.1.17",
+    "remark-rehype": "^8.0.0",
+    "remark-stringify": "^9.0.0",
+    "styled-components": "^5.2.1",
     "typeface-merriweather": "^0.0.72",
     "typeface-montserrat": "^0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "unified": "^9.2.0",
+    "unist-builder": "^2.0.3",
+    "unist-util-filter": "^2.0.3",
+    "unist-util-map": "^2.0.1",
+    "unist-util-visit": "^2.0.3",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
-    "gatsby-cli": "^2.11.13",
-    "gatsby-plugin-feed": "^2.4.3",
-    "gatsby-plugin-google-analytics": "^2.2.4",
-    "gatsby-plugin-manifest": "^2.3.5",
-    "gatsby-plugin-offline": "^3.1.4",
-    "gatsby-plugin-react-helmet": "^3.2.4",
-    "gatsby-plugin-sharp": "^2.6.43",
-    "gatsby-plugin-typography": "^2.4.3",
-    "gatsby-remark-copy-linked-files": "^2.2.3",
-    "gatsby-remark-images": "^3.2.4",
-    "gatsby-remark-prismjs": "^3.4.4",
-    "gatsby-remark-responsive-iframe": "^2.3.3",
-    "gatsby-remark-smartypants": "^2.2.3",
-    "gatsby-source-filesystem": "^2.2.4",
-    "gatsby-transformer-remark": "^2.7.3",
-    "gatsby-transformer-sharp": "^2.5.20",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.6",
-    "prettier": "^2.0.4",
-    "react-helmet": "^6.0.0"
+    "prettier": "^2.0.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
-    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "develop": "next",
+    "build": "next build",
+    "serve": "next start",
+    "format": "prettier --write components/**/*.{js,jsx,json,md} pages/**/*.{js,jsx,json,md} utils/**/*.{js,jsx,json,md} public/**/*.{js,jsx,json,md}",
+    "test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
   },
   "husky": {
     "hooks": {
@@ -69,5 +70,11 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "prettier --write"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "volta": {
+    "node": "12.19.0"
   }
 }
