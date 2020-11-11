@@ -1,5 +1,6 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document'
 import {ServerStyleSheet} from 'styled-components'
+import flush from 'styled-jsx/server'
 import {TypographyStyle, GoogleFont} from 'react-typography'
 import typography from '../utils/typography'
 
@@ -15,9 +16,10 @@ export default class BlogDocument extends Document {
 
 		// Step 3: Extract the styles as <style> tags
 		const styleTags = sheet.getStyleElement()
+		const styles = flush()
 
 		// Step 4: Pass styleTags as a prop
-		return {...page, styleTags}
+		return {...page, styleTags, styles}
 	}
 
 	render() {

@@ -28,8 +28,8 @@ export default function Layout({siteMetadata, children}) {
 					aria-label="The Brownie Blog"
 				>
 					<a>
-						<span>The&#32;</span>
-						<span style={{whiteSpace: 'nowrap'}}>
+						<span className="title-piece">The&#32;</span>
+						<span className="title-piece">
 							Br
 							<img
 								src="/assets/logo.svg"
@@ -41,7 +41,7 @@ export default function Layout({siteMetadata, children}) {
 							/>
 							wnie
 						</span>
-						<span>&#32;Blog</span>
+						<span className="title-piece">&#32;Blog</span>
 					</a>
 				</Link>
 			</h1>
@@ -78,18 +78,8 @@ export default function Layout({siteMetadata, children}) {
 					overflow: hidden;
 				}
 
-				.blog-title--inactive a {
-					background-clip: text;
-					background-position-x: 147px !important;
-					background: linear-gradient(to right, #668afe, #668afe 50%, #333 50%);
-
-					transition: background-position 300ms ease;
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
-
-				.blog-title a:hover {
-					background-position-x: 500px !important;
+				.blog-title .title-piece:nth-child(2) {
+					color: #668afe;
 				}
 
 				.app-wrapper {
