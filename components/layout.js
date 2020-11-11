@@ -80,6 +80,7 @@ export default function Layout({siteMetadata, children}) {
 
 				.blog-title .title-piece:nth-child(2) {
 					color: #668afe;
+					white-space: nowrap;
 				}
 
 				.app-wrapper {
