@@ -24,3 +24,7 @@ export async function getStaticProps() {
 	const {data} = await client.query({query})
 	return {props: data}
 }
+
+export const options = {
+	unstable_runtimeJS: false,
+}
