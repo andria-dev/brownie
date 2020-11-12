@@ -34,7 +34,7 @@ export default class BlogDocument extends Document {
 				</Head>
 				<body>
 					<Main />
-					<NextScript />
+					{this.props.unstable_runtimeJS ? <NextScript /> : null}
 				</body>
 			</Html>
 		)

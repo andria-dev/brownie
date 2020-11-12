@@ -147,3 +147,7 @@ export async function getStaticProps({params}) {
 
 	return {props: data}
 }
+
+export const options = {
+	unstable_runtimeJS: false,
+}
