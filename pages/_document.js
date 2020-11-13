@@ -23,6 +23,8 @@ export default class BlogDocument extends Document {
 	}
 
 	render() {
+		const shouldRenderScripts =
+			this.props.unstable_runtimeJS || process.env.NODE_ENV !== 'production'
 		// noinspection HtmlRequiredTitleElement
 		return (
 			<Html lang="en-US">
@@ -34,7 +36,7 @@ export default class BlogDocument extends Document {
 				</Head>
 				<body>
 					<Main />
-					{this.props.unstable_runtimeJS ? <NextScript /> : null}
+					{shouldRenderScripts ? <NextScript /> : null}
 				</body>
 			</Html>
 		)
