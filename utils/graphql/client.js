@@ -13,4 +13,8 @@ export const client = new ApolloClient({
 	ssrMode: true,
 	cache: new InMemoryCache(),
 	link: new SchemaLink({schema}),
+	defaultOptions: {
+		query: {fetchPolicy: 'no-cache'},
+		watchQuery: {fetchPolicy: 'no-cache'},
+	},
 })
