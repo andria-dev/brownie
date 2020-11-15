@@ -90,11 +90,10 @@ export const resolvers = {
 	},
 	Date: new GraphQLScalarType({
 		name: 'Date',
-		description: 'Takes in 2020-11-04 and November 4, 2020',
+		description: 'Takes in 2020-11-05 and November 5, 2020',
 		serialize(value) {
-			// Move one day forward since toLocaleDateString is not UTC
-			const nextDay = new Date(value).getTime() + 24 * 60 * 60 * 1000
-			return new Date(nextDay).toLocaleDateString(undefined, {
+			return new Date(value).toLocaleDateString('en-US', {
+				timeZone: 'UTC',
 				month: 'long',
 				day: 'numeric',
 				year: 'numeric',
