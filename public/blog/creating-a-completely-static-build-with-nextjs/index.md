@@ -1,11 +1,14 @@
 ---
 title: Creating a Completely Static Build with Next.js
 description: 'A brief tutorial on how to set up Next.js to produce no-JavaScript static builds and end FOUC'
-date: 2020-11-12
-published: false
+date: 2020-11-15
+published: true
 ---
 
-If you've ever tried to write a Next.js application that utilizes its SSG (static site generation) or SSR (server-side rendering) features, you may have noticed a **considerable FOUC** (flash of unstyled content). In my experience, this was caused by Next.js using its **`<NextScript>` component** to load in all the styles at runtime. For a static site, it would be preferable to compile all the styles to static CSS files and load them straight from the server.
+<img src="/blog/creating-a-completely-static-build-with-nextjs/nextjs.png" alt="White stylistic Next.js logo on black background" class="large" />
+<br>
+
+If you've ever tried to write a Next.js application that utilizes its <abbr title="static site generation">SSG</abbr> or <abbr title="server-side rendering">SSR</abbr> features, you may have noticed a **considerable <abbr title="flash of unstyled content">FOUC</abbr>**. In my experience, this was caused by Next.js using its **`<NextScript>` component** to load in all the styles at runtime. For a static site, it would be preferable to compile all the styles to static CSS files and load them straight from the server.
 
 This article will explain how to make a site built with Next.js completely independent of all the scripts that Next.js likes to bundle it with. This way, your site can load instantly once the user's web browser retrieves the HTML and CSS.
 
@@ -49,6 +52,7 @@ If we were to try to make this into a static site with `next build`, Next.js wou
 With this simple application, all we are required to do to remove these scripts is export a configuration object from our page file. Here is an example of that:
 
 ```jsx
+// pages/index.js
 function HomePage() {
 	/* Truncated */
 }
@@ -60,7 +64,7 @@ export const config = {
 
 The configuration object has one parameter that we are interested in: **`unstable_runtimeJS`**. To disable Next.js' runtime scripts, we'll set this to `false`. Keep in mind, Next.js only applies the configuration object on a per-page basis. Once we do this, the scripts provided are no longer in the **build**. This does not affect how `next dev` works because Next.js needs these scripts to be able to run in development mode.
 
-All of these steps were for a "simple" site. What exactly does that mean?
+All of these steps were designed for a "simple" site. What exactly does that mean?
 
 In this instance, it means that you're using Next.js' default `Document` rendering component. It's what allows you to write your page components and not worry about creating your `<head>`, `<link>`, `<script>`, or `<body>` elements.
 
@@ -75,7 +79,7 @@ Let's make a basic `_document.js` file first. There's a total of four required c
 - `<Main />`
 - `<NextScript />`
 
-Now that we have our requirements let's look at an example:
+Now that we have our requirements let's implement our own bare bones `_document.js` file.
 
 ```jsx
 // pages/_document.js
@@ -98,7 +102,7 @@ export default class MyDocument extends Document {
 }
 ```
 
-This example is fairly self-explanatory. If you want to add metadata, scripts, or styles to your site, you can do so within the `<Head></Head>` tags. Just as well, if you want to add extra content besides your page itself, `<Main />`, then you can do so within the `<body></body>` tags.
+This example is fairly self-explanatory for those who are familiar with html documents. If you want to add metadata, scripts, or styles to your site, you can do so within the `<Head></Head>` tags. Just as well, if you want to add visible content — besides your page itself, `<Main />` — then you can do so within the `<body></body>` tags.
 
 ### Removing Next.js' scripts safely
 
@@ -108,7 +112,7 @@ When removing `<NextScript />` from your `render()` method, there are a few thin
 - When `unstable_runtimeJS` is `false`, `<NextScript />` is optional.
 - However, when `unstable_runtimeJS` is `true`, which is the default, `<NextScript />` is required.
 
-With this information we can start working on removing these scripts from our build where we don't want them. Remember, we only want to include the scripts if we're in development mode, or, conversely, if we're not in production mode or if `unstable_runtimeJS` is enabled. We can write this with two simple conditions.
+With this information we can start working on removing these scripts from our build where we don't want them. Remember, we only want to include the scripts if we're in development mode — or, conversely, if we're not in production mode — or if `unstable_runtimeJS` is enabled. We can write this with two simple conditions.
 
 ```javascript
 // unstable_runtimeJS is provided via `this.props`
@@ -119,6 +123,7 @@ const shouldRenderScripts =
 Now that we know when to render the scripts, we can remove them the rest of the time.
 
 ```jsx
+// pages/_document.js
 export default class MyDocument extends Document {
 	render() {
 		const shouldRenderScripts =
@@ -141,6 +146,8 @@ export default class MyDocument extends Document {
 That's it! You've created a completely static build with the Next.js framework. Although, some of you might be having some problems with your styles not being included now just as I did when implementing this.
 
 ## Including your styles in your build
+
+If you are not having issues with your styles being included in your static build, please disregard this section.
 
 Personally, I'm not too familiar with the inner workings of `styled-components` or `styled-jsx`, however, I did find a solution. We need to write a static method called `getInitialProps` that runs at build-time. In this method, we will use a `ServerStyleSheet` to collect all the stylesheets from our pages. Then, we'll extract the styles and flush `styled-jsx`'s styles and add them to `this.props`.
 
@@ -187,7 +194,7 @@ export default class BlogDocument extends Document {
 }
 ```
 
-If this doesn't work for you, shoot me a message on Twitter or leave comment on Next.js' GitHub.
+If this doesn't work for you, send me a message on Twitter or leave comment on Next.js' GitHub.
 
 ## Thank you for reading this
 
