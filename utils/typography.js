@@ -23,6 +23,7 @@ TypographyTheme.overrideThemeStyles = () => {
 		code: {
 			lineHeight: '1.25rem !important',
 			tabSize: 2,
+			'-moz-tab-size': 2,
 		},
 	}
 }
