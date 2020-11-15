@@ -24,6 +24,7 @@ TypographyTheme.overrideThemeStyles = () => {
 			lineHeight: '1.25rem !important',
 			tabSize: 2,
 			'-moz-tab-size': 2,
+			fontFamily: '"JetBrains Mono", monospace',
 		},
 	}
 }
