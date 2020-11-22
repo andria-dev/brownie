@@ -10,6 +10,15 @@ import {rhythm, scale} from '../utils/typography'
 
 import 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
 import {GET_POST} from '../utils/graphql/queries'
+import Head from 'next/head'
+
+function CodeFont() {
+	return (
+		<Head>
+			<link rel="stylesheet" href="/fonts/JetBrainsMono/font.css" />
+		</Head>
+	)
+}
 
 export default function BlogPost({
 	post: {content, stats, context},
@@ -22,6 +31,8 @@ export default function BlogPost({
 				description={content.description || 'A post by Chris Brown'}
 				siteMetadata={siteMetadata}
 			/>
+			<CodeFont />
+
 			{!stats.published ? (
 				<p
 					style={{

@@ -62,6 +62,7 @@ export default class BlogDocument extends Document {
 					{this.props.styleTags}
 					<TypographyStyle typography={typography} />
 					<GoogleFont typography={typography} />
+					<link rel="preload" as="style" href="/fonts/JetBrainsMono/font.css" />
 				</Head>
 				<body>
 					<Main />

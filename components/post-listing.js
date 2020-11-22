@@ -5,11 +5,11 @@ import {PublicationInfo} from './publication-info'
 export function PostListing({post: {slug, content, stats}}) {
 	return (
 		<div className="post-listing">
-			<h3 className="title">
+			<h2 className="title">
 				<Link href={slug}>
 					<a>{content.title}</a>
 				</Link>
-			</h3>
+			</h2>
 			<small className="stats" style={scale(-1 / 5)}>
 				<PublicationInfo date={stats.date} timeToRead={stats.timeToRead.text} />
 				{!stats.published ? (
@@ -25,6 +25,9 @@ export function PostListing({post: {slug, content, stats}}) {
 					margin-bottom: ${rhythm(1 / 4)};
 					font-weight: 700;
 					transition: opacity 0.2s ease-out;
+					text-rendering: optimizeLegibility;
+					font-size: 1.4427rem;
+					line-height: 1.1;
 				}
 
 				.title:hover {

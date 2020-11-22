@@ -37,7 +37,7 @@ TypographyTheme.googleFonts = [
 	},
 	{
 		name: 'Merriweather',
-		styles: ['400', '400i', '700', '700i', '900', '900i'],
+		styles: ['400', '400i', '700', '700i', '900', '900i&display=swap'],
 	},
 ]
 
