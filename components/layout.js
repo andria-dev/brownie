@@ -27,7 +27,7 @@ export default function Layout({siteMetadata, children}) {
 					href="/"
 					aria-label="The Brownie Blog"
 				>
-					<a title="The Brownie Blog">
+					<a aria-label="The Brownie Blog">
 						<span className="title-piece">The&#32;</span>
 						<span className="title-piece">
 							Br
