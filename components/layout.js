@@ -25,7 +25,6 @@ export default function Layout({siteMetadata, children}) {
 						fontWeight: 900,
 					}}
 					href="/"
-					aria-label="The Brownie Blog"
 				>
 					<a aria-label="The Brownie Blog">
 						<span className="title-piece">The&#32;</span>
