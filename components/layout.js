@@ -16,7 +16,6 @@ export default function Layout({siteMetadata, children}) {
 					marginTop: 0,
 				}}
 				className="blog-title blog-title--inactive"
-				aria-label="The Brownie Blog"
 			>
 				<Link
 					style={{
@@ -28,7 +27,7 @@ export default function Layout({siteMetadata, children}) {
 					href="/"
 					aria-label="The Brownie Blog"
 				>
-					<a>
+					<a title="The Brownie Blog">
 						<span className="title-piece">The&#32;</span>
 						<span className="title-piece">
 							Br
