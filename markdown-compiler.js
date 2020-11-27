@@ -273,9 +273,7 @@ function Compiler() {
 	return html`
 		<${Box} flexDirection="column">
 			<${Text} color="blue">Markdown Compiler<//>
-			${updateTimeText.length
-				? updateTimeText
-				: html` <${Text}>No updates yet...<//> `}
+			${updateTimeText.length ? updateTimeText : html`<${Text}>No updates yet...<//>`}
 		</${Box}>
 	`
 }
@@ -290,6 +288,6 @@ if (argv.w || argv.watch) {
 	getPosts()
 		.then(savePosts)
 		.then(() => {
-			render(html` <${Text} color="green">Posts have been built!<//> `)
+			render(html`<${Text} color="green">Posts have been built!<//>`)
 		})
 }
