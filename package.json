@@ -11,7 +11,13 @@
     "@apollo/client": "^3.2.5",
     "apollo-link-schema": "^1.2.5",
     "apollo-server-micro": "^2.19.0",
+    "chokidar": "^3.4.3",
+    "esm": "^3.2.25",
     "graphql-tools": "^7.0.1",
+    "htm": "^3.0.4",
+    "ink": "^3.0.8",
+    "mini-debounce": "^1.0.8",
+    "minimist": "^1.2.5",
     "next": "^10.0.1",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.20.0",
@@ -56,10 +62,11 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "start": "yarn run develop",
     "develop": "next",
-    "build": "next build",
-    "serve": "next start",
+    "build": "yarn run build:posts && yarn run build:pages",
+    "build:pages": "next build",
+    "build:posts": "node -r esm ./markdown-compiler.js",
+    "watch:posts": "node -r esm ./markdown-compiler.js --watch",
     "format": "prettier --write components/**/*.{js,jsx,json,md} pages/**/*.{js,jsx,json,md} utils/**/*.{js,jsx,json,md} public/**/*.{js,jsx,json,md}",
     "test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
   },

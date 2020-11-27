@@ -20,10 +20,10 @@ function CodeFont() {
 	)
 }
 
-export default function BlogPost({
-	post: {content, stats, context},
-	siteMetadata,
-}) {
+export default function BlogPost({post, siteMetadata}) {
+	if (!post) return null
+	const {content, stats, context} = post
+
 	return (
 		<Layout title={content.title} siteMetadata={siteMetadata}>
 			<SEO
@@ -142,10 +142,10 @@ export async function getStaticPaths() {
 		}
 	`
 	const {data} = await client.query({query})
+	const paths = data.posts.map((post) => ({params: {slug: post.slug}}))
+
 	return {
-		paths: data.posts.map((post) => ({
-			params: {slug: post.slug},
-		})),
+		paths,
 		fallback: false,
 	}
 }
