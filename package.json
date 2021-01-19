@@ -63,7 +63,7 @@
   },
   "scripts": {
     "develop": "next",
-    "build": "yarn run build:posts && yarn run build:pages",
+    "build": "export NODE_ENV=production && yarn run build:posts && yarn run build:pages",
     "build:pages": "next build",
     "build:posts": "node -r esm ./markdown-compiler.js",
     "watch:posts": "node -r esm ./markdown-compiler.js --watch",
