@@ -8,25 +8,23 @@
 		"url": "https://github.com/andria-dev/brownie/issues"
 	},
 	"dependencies": {
-		"@apollo/client": "^3.7.3",
-		"@apollo/server": "^4.3.0",
-		"apollo-server-nextjs": "4.0.0",
+		"@apollo/client": "^3.2.5",
+		"apollo-link-schema": "^1.2.5",
+		"apollo-server-micro": "^2.19.0",
 		"chokidar": "^3.4.3",
 		"esm": "^3.2.25",
-		"graphql": "^16.6.0",
-		"graphql-tag": "^2.12.6",
-		"graphql-tools": "^8.3.14",
+		"graphql-tools": "^7.0.1",
 		"htm": "^3.0.4",
 		"ink": "^3.0.8",
 		"mini-debounce": "^1.0.8",
 		"minimist": "^1.2.5",
-		"next": "^13.1.1",
+		"next": "^10.0.1",
 		"prism-themes": "^1.4.0",
 		"prismjs": "^1.20.0",
 		"prop-types": "^15.7.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-typography": "^0.16.23",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-typography": "^0.16.19",
 		"reading-time": "^1.2.0",
 		"rehype-parse": "^7.0.1",
 		"rehype-stringify": "^8.0.0",
@@ -50,27 +48,23 @@
 		"yaml": "^1.10.0"
 	},
 	"devDependencies": {
+		"@11ty/eleventy": "^0.12.1",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+		"eleventy-plugin-automatic-noopener": "^1.0.0",
+		"eleventy-plugin-helmet": "^0.2.2",
+		"eleventy-plugin-nesting-toc": "^1.2.0",
+		"eleventy-plugin-sharp": "^0.0.3",
+		"eleventy-plugin-tailwindcss": "^0.3.0",
+		"eleventy-plugin-time-to-read": "^1.0.0",
 		"husky": "^4.2.5",
 		"lint-staged": "^10.1.6",
+		"markdown-it": "^12.0.4",
+		"markdown-it-anchor": "^7.1.0",
 		"prettier": "^2.0.4"
 	},
-	"homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-	"keywords": [
-		"gatsby"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-	},
 	"scripts": {
-		"develop": "next",
-		"build": "NODE_ENV=production yarn run build:posts && yarn run build:pages",
-		"build:pages": "next build",
-		"build:posts": "node -r esm ./markdown-compiler.js",
-		"watch:posts": "node -r esm ./markdown-compiler.js --watch",
-		"format": "prettier --write components/**/*.{js,jsx,json,md} pages/**/*.{js,jsx,json,md} utils/**/*.{js,jsx,json,md} public/**/*.{js,jsx,json,md}",
-		"test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
+		"develop": "eleventy --serve",
+		"build": "eleventy"
 	},
 	"husky": {
 		"hooks": {
@@ -87,4 +81,3 @@
 		"node": "18.12.1"
 	}
 }
-
