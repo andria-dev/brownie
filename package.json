@@ -48,8 +48,18 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "eleventy-plugin-automatic-noopener": "^1.0.0",
+    "eleventy-plugin-helmet": "^0.2.2",
+    "eleventy-plugin-nesting-toc": "^1.2.0",
+    "eleventy-plugin-sharp": "^0.0.3",
+    "eleventy-plugin-tailwindcss": "^0.3.0",
+    "eleventy-plugin-time-to-read": "^1.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.6",
+    "markdown-it": "^12.0.4",
+    "markdown-it-anchor": "^7.1.0",
     "prettier": "^2.0.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -62,13 +72,8 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "develop": "next",
-    "build": "export NODE_ENV=production && yarn run build:posts && yarn run build:pages",
-    "build:pages": "next build",
-    "build:posts": "node -r esm ./markdown-compiler.js",
-    "watch:posts": "node -r esm ./markdown-compiler.js --watch",
-    "format": "prettier --write components/**/*.{js,jsx,json,md} pages/**/*.{js,jsx,json,md} utils/**/*.{js,jsx,json,md} public/**/*.{js,jsx,json,md}",
-    "test": "echo \"Write tests! -> https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d\""
+    "develop": "eleventy --serve",
+    "build": "eleventy"
   },
   "husky": {
     "hooks": {
@@ -77,11 +82,5 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "prettier --write"
-  },
-  "engines": {
-    "node": "12.x"
-  },
-  "volta": {
-    "node": "12.20.0"
   }
 }
