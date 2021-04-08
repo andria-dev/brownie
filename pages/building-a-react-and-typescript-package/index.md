@@ -1,4 +1,5 @@
 ---
+tags: post
 title: Building a React and TypeScript Library
 description: ''
 date: 2020-08-01

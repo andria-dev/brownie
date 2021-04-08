@@ -1,4 +1,5 @@
 ---
+tags: post
 title: Creating a Completely Static Build with Next.js
 description: 'A brief tutorial on how to set up Next.js to produce no-JavaScript static builds and end FOUC'
 date: 2020-11-15

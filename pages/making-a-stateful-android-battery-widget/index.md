@@ -1,4 +1,5 @@
 ---
+tags: post
 title: Making a Stateful Android Battery Widget
 description: My notes and thoughts on developing a beautiful battery widget for Android
 date: 2020-11-07

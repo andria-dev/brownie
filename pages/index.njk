@@ -1,0 +1,18 @@
+---
+layout: base
+permalink: /
+---
+<title data-helmet="">The Brownie Blog</title>
+
+<h1 class="blog-title">
+	<a href="/" aria-label="The Brownie Blog">
+		<span class="title-piece">The </span>
+		<span class="title-piece">Br<img class="title-piece__logo" src="/public/logo.svg" alt="">wnie</span>
+		<span class="title-piece"> Blog</span>
+	</a>
+</h1>
+{% include 'bio.njk' %}
+
+{% for post in collections.posts %}
+	{% include 'post-link.njk' %}
+{% endfor %}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?V=PYAmmRp8gy" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?V=PYAmmRp8gy" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?V=PYAmmRp8gy" />
+		<link rel="manifest" href="/favicons/site.webmanifest?V=PYAmmRp8gy" />
+		<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?V=PYAmmRp8gy" color="#668bfe" />
+		<link rel="shortcut icon" href="/favicons/favicon.ico?V=PYAmmRp8gy" />
+		<meta name="msapplication-TileColor" content="#ffc40d" />
+		<meta name="theme-color" content="#fafafa" />
+	</head>
+	<body>
+		{{ content | safe }}
+
+		{# Copyright info #}
+		<footer class="copyright-footer">
+			<small class="copyright-text">
+				<span aria-label="Copyright">©</span>
+				{{ helpers.currentYear() }} Chris Brown, Built with <span aria-label="love">♥</span> and <a href="https://www.11ty.dev/">Eleventy</a>.
+			</small>
+		</footer>
+	</body>
+</html>

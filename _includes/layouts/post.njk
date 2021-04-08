@@ -1,0 +1,17 @@
+---
+layout: base
+---
+
+<a href="/" class="blog-title">The Brownie Blog</a>
+<h1 class="post-title">{{ post.title }}</h1>
+{% include 'publication.njk' %}
+
+{# Table of Contents #}
+{{ content | toc }}
+
+{# Markdown content #}
+{{ content | safe }}
+
+<hr>
+{% include 'bio.njk' %}
+{# TODO: Previous and Next buttons #}

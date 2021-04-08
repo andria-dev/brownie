@@ -50,9 +50,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@thedigitalman/eleventy-plugin-toc-a11y": "^2.0.2",
     "eleventy-plugin-automatic-noopener": "^1.0.0",
     "eleventy-plugin-helmet": "^0.2.2",
-    "eleventy-plugin-nesting-toc": "^1.2.0",
     "eleventy-plugin-sharp": "^0.0.3",
     "eleventy-plugin-tailwindcss": "^0.3.0",
     "eleventy-plugin-time-to-read": "^1.0.0",
@@ -72,8 +72,8 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "develop": "eleventy --serve",
-    "build": "eleventy"
+    "develop": "NODE_ENV=development eleventy --serve",
+    "build": "NODE_ENV=production eleventy"
   },
   "husky": {
     "hooks": {
