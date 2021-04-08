@@ -1,0 +1,10 @@
+<p class="publication-info">
+	<time datetime="{{ post.date | formatValidDateString }}">{{ post.date | formatHumanReadableDate }}</time>
+	<span aria-hidden="true">·</span>
+	<span>{{ post | timeToRead }}</span>
+	{% if not post.data.published %}
+		<span classname="draft">
+			<span aria-hidden="true">·</span> DRAFT
+		</span>
+	{% endif %}
+</p>
