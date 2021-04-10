@@ -1,17 +1,38 @@
 ---
 layout: base
 ---
+{% set post = {
+	tags: tags,
+	data: {
+		title: title,
+		description: description,
+		date: date,
+		published: published
+	},
+	templateContent: content
+} %}
 
-<a href="/" class="blog-title">The Brownie Blog</a>
-<h1 class="post-title">{{ post.title }}</h1>
-{% include 'publication.njk' %}
+<header>
+	<a href="/" class="blog-title">The Brownie Blog</a>
+	<h1 class="post-title">{{ title }}</h1>
+	{% include 'publication-metadata.njk' %}
+</header>
 
-{# Table of Contents #}
-{{ content | toc }}
+<main>
+	{# Table of Contents #}
+	{{ content | toc | safe }}
 
-{# Markdown content #}
-{{ content | safe }}
+	{# Markdown content #}
+	{{ content | safe }}
+</main>
 
 <hr>
-{% include 'bio.njk' %}
-{# TODO: Previous and Next buttons #}
+
+<aside>
+	{% include 'bio.njk' %}
+</aside>
+
+<nav>
+	<h2 id="article-navigation-title">Other Articles</h2>
+	{# TODO: Previous and Next buttons #}
+</nav>

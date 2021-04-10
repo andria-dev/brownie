@@ -1,5 +1,6 @@
 ---
 tags: post
+layout: layouts/post.njk
 title: Making My First Android Widget — The Clock
 description: My journey and notes on developing an Android widget
 date: 2020-10-30

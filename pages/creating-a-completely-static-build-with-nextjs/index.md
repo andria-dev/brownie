@@ -1,12 +1,13 @@
 ---
 tags: post
+layout: layouts/post.njk
 title: Creating a Completely Static Build with Next.js
 description: 'A brief tutorial on how to set up Next.js to produce no-JavaScript static builds and end FOUC'
 date: 2020-11-15
 published: true
 ---
 
-<img src="/blog/creating-a-completely-static-build-with-nextjs/nextjs.png" alt="White stylistic Next.js logo on black background" class="large" />
+<img src="./nextjs.png" alt="White stylistic Next.js logo on black background" class="large" />
 <br>
 
 If you've ever tried to write a Next.js application that utilizes its <abbr title="static site generation">SSG</abbr> or <abbr title="server-side rendering">SSR</abbr> features, you may have noticed a **considerable <abbr title="flash of unstyled content">FOUC</abbr>**. In my experience, this was caused by Next.js using its **`<NextScript>` component** to load in all the styles at runtime. For a static site, it would be preferable to compile all the styles to static CSS files and load them straight from the server.

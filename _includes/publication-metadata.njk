@@ -1,0 +1,14 @@
+<div class="publication-metadata">
+	<p>
+		<time datetime="{{ post.data.date | formatValidDateString }}">{{ post.data.date | formatHumanReadableDate }}</time>
+	</p>
+	<span aria-hidden="true">·</span>
+	<p>
+		<span>{{ post | timeToRead }}</span>
+		{% if not post.data.published %}
+			<span classname="draft">
+				<span aria-hidden="true">·</span> DRAFT
+			</span>
+		{% endif %}
+	</p>
+</div>

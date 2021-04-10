@@ -1,5 +1,6 @@
 ---
 tags: post
+layout: layouts/post.njk
 title: 'React Spring Modal: An In-Depth Tutorial'
 description: How to use my new library to accessibly and smoothly display beautiful modals
 date: 2019-11-13

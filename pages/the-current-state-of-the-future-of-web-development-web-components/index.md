@@ -1,5 +1,6 @@
 ---
 tags: post
+layout: layouts/post.njk
 title: 'The Current State Of The Future Of Web Development: Web Components'
 description: ''
 date: 2020-05-14

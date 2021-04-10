@@ -67,7 +67,11 @@ module.exports = (
 	eleventy.addPlugin(helmetPlugin)
 
 	// Blog post metadata
-	eleventy.addPlugin(timeToRead, {speed: '250 words per minute'})
+	eleventy.addPlugin(timeToRead, {
+		style: 'short',
+		append: ' read',
+		speed: '250 words per minute',
+	})
 
 	// Markdown
 	eleventy.addPlugin(syntaxHighlight)
