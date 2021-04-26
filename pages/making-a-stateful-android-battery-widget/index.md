@@ -401,3 +401,4 @@ In conclusion, widget development on Android is not easy, and I wish Google woul
 ## Thank you for reading this.
 
 If you have any compliments or criticisms about this article, or the Android code in this article, reach out to me on Twitter.
+
