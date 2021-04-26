@@ -14,9 +14,9 @@ Let's jump right in. To create a clock, you should avoid attempting to implement
 Before we go any further, this is what we will be building:
 
 <picture>
-	<source src="/blog/making-my-first-android-widget-the-clock/clock-widget-preview.avif" type="image/avif">
-	<source src="/blog/making-my-first-android-widget-the-clock/clock-widget-preview.webp" type="image/webp">
-	<img src="/blog/making-my-first-android-widget-the-clock/clock-widget-preview.png" alt="Digital clock widget showing the time and date.">
+	<source src="./clock-widget-preview.avif" type="image/avif">
+	<source src="./clock-widget-preview.webp" type="image/webp">
+	<img src="./clock-widget-preview.png" alt="Digital clock widget showing the time and date.">
 </picture>
 <br>
 

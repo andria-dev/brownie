@@ -32,7 +32,9 @@ layout: base
 	{% include 'bio.njk' %}
 </aside>
 
-<nav>
+<nav aria-labelledby="article-navigation-title" class="other-articles">
 	<h2 id="article-navigation-title">Other Articles</h2>
-	{# TODO: Previous and Next buttons #}
+	<a href="{{previous.url}}">← {{previous.data.title}}</a>
+	<br>
+	<a href="{{next.url}}">{{next.data.title}} →</a>
 </nav>

@@ -12,6 +12,9 @@ const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('@thedigitalman/eleventy-plugin-toc-a11y')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const {JSDOM} = require('jsdom')
+
+const {promises: fs} = require('fs')
 
 const sharpConfig = {
 	urlPath: './',
@@ -45,7 +48,9 @@ module.exports = (
 ) => {
 	// Assets
 	eleventy.addPlugin(sharpPlugin(sharpConfig))
-	eleventy.addAsyncShortcode('_getUrl', async function (instance) {
+	eleventy.addAsyncShortcode('_getUrl', async function (
+		/** @type {{ fileOut: string; options: any; toFile: (arg0: any) => any; }} */ instance,
+	) {
 		if (!instance.fileOut) {
 			instance.fileOut = path.join(
 				sharpConfig.outputDir,
@@ -59,6 +64,38 @@ module.exports = (
 		const urlDirectory =
 			sharpConfig.outputDir.replace('_site', '') + sharpConfig.urlPath
 		return path.join(urlDirectory, path.basename(instance.fileOut))
+	})
+	eleventy.addTransform('copy-images-to-build', async (
+		/** @type {string} */ content,
+		/** @type {string} */ pageOutputPath,
+	) => {
+		if (!pageOutputPath?.endsWith('.html')) return content
+
+		// TODO: convert content string to document object and copy images to correct build directory and then replace the src, srcset, or other related attribute with the full path.
+		const dom = new JSDOM(content)
+		const {document} = dom.window
+
+		await Promise.all(
+			Array.from(document.querySelectorAll('main img, main source, main video'))
+				// @ts-ignore
+				.map(async (
+					/** @type {HTMLImageElement | HTMLSourceElement | HTMLVideoElement & { srcset: never }} */ element,
+				) => {
+					if (element.src) {
+						const directory = path.dirname(pageOutputPath).replace('_site/', '')
+						const src = path.join(directory, element.src)
+						const inputPath = path.resolve(process.cwd(), src)
+						const outputPath = path.resolve(process.cwd(), '_site', src)
+						try {
+							await fs.copyFile(inputPath, outputPath)
+						} catch {}
+					}
+
+					if (element.srcset) {
+					}
+				}),
+		)
+		return dom.serialize()
 	})
 	// TODO: eleventy.addPlugin(pluginTailwindCSS)
 
@@ -74,7 +111,7 @@ module.exports = (
 	})
 
 	// Markdown
-	eleventy.addPlugin(syntaxHighlight)
+	eleventy.addPlugin(syntaxHighlight, {preAttributes: {tabindex: 0}})
 	eleventy.addPlugin(pluginTOC)
 	eleventy.setLibrary(
 		'md',
@@ -82,7 +119,7 @@ module.exports = (
 			html: true,
 			linkify: true,
 			typographer: true,
-		}).use(markdownItAnchor, {}),
+		}).use(markdownItAnchor),
 	)
 
 	// Eleventy config
@@ -91,17 +128,17 @@ module.exports = (
 	eleventy.addPassthroughCopy('public')
 
 	// Filters
-	eleventy.addFilter('formatValidDateString', (value) =>
+	eleventy.addFilter('formatValidDateString', (/** @type {Date} */ value) =>
 		// fr-CA gives YYYY-MM-DD format
-		new Date(value).toLocaleDateString('fr-CA', {
+		value.toLocaleDateString('fr-CA', {
 			timeZone: 'UTC',
 			year: 'numeric',
 			month: '2-digit',
 			day: '2-digit',
 		}),
 	)
-	eleventy.addFilter('formatHumanReadableDate', (value) =>
-		new Date(value).toLocaleDateString('en-US', {
+	eleventy.addFilter('formatHumanReadableDate', (/** @type {Date} */ value) =>
+		value.toLocaleDateString('en-US', {
 			timeZone: 'UTC',
 			month: 'long',
 			day: 'numeric',
@@ -113,12 +150,18 @@ module.exports = (
 	eleventy.addCollection('posts', (
 		/** @type {import('@11ty/eleventy/src/TemplateCollection.js')} */ templateCollection,
 	) => {
-		return templateCollection
+		const posts = templateCollection
 			.getFilteredByTag('post')
 			.filter(
 				(item) => process.env.NODE_ENV === 'development' || item.data.published,
 			)
 			.sort((a, b) => b.date.getTime() - a.date.getTime())
+
+		for (let index = 0; index < posts.length; index++) {
+			posts[index].data.previous = posts[index - 1] || null
+			posts[index].data.next = posts[index + 1] || null
+		}
+		return posts
 	})
 
 	return {

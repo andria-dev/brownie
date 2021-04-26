@@ -16,9 +16,9 @@ This battery widget should be able to:
 - Launch the battery settings when touched.
 
 <picture>
-	<source srcset="/blog/making-a-stateful-android-battery-widget/battery-widget.avif" type="image/avif">
-    <source srcset="/blog/making-a-stateful-android-battery-widget/battery-widget.webp" type="image/webp">
-	<img src="/blog/making-a-stateful-android-battery-widget/battery-widget.png" alt="Android battery widget displaying the percentage and charging status of the battery.">
+	<source src="./battery-widget.avif" type="image/avif">
+	<source src="./battery-widget.webp" type="image/webp">
+	<img src="./battery-widget.png" alt="Android battery widget displaying the percentage and charging status of the battery.">
 </picture>
 <br>
 

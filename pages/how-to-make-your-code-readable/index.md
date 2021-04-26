@@ -7,7 +7,7 @@ date: 2018-06-30
 published: true
 ---
 
-<img src="/blog/how-to-make-your-code-readable/matrix-code.jpeg" alt="Vertical green matrix code wallpaper" class="large">
+<img src="./matrix-code.jpeg" alt="Vertical green matrix code wallpaper" class="large">
 
 <br>
 
@@ -35,7 +35,7 @@ The simplest way to identify bad code, in my opinion, is to try to read your cod
 
 Here, for example, is some bad code:
 
-<img src="/blog/how-to-make-your-code-readable/bad-code.png" alt="Screenshot of the bad version of function traverseUpUntil" class="large">
+<img src="./bad-code.png" alt="Screenshot of the bad version of function traverseUpUntil" class="large">
 
 The function pictured above, when passed an element and a conditional function, returns the nearest "parent" node that passes the conditional function.
 
@@ -72,7 +72,7 @@ Due to the bad variable name, a reader can't feel 100 percent clear about what i
 
 ## Make Improvements
 
-<img src="/blog/how-to-make-your-code-readable/good-code.png" alt="Screenshot of the good version of function traverseUpUntil" class="large">
+<img src="./good-code.png" alt="Screenshot of the good version of function traverseUpUntil" class="large">
 
 First we modify the parameter names and their order: `(el, f) =>` into `(condition, node) =>` (you can also do `condition => node =>` which adds an extra layer of usability).
 
