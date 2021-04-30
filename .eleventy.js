@@ -47,6 +47,7 @@ module.exports = (
 	/** @type {import('@11ty/eleventy/src/UserConfig.js')} */ eleventy,
 ) => {
 	// Assets
+	eleventy.addPlugin(pluginTailwindCSS, {src: 'pages/**/*.css'})
 	eleventy.addPlugin(sharpPlugin(sharpConfig))
 	eleventy.addAsyncShortcode('_getUrl', async function (
 		/** @type {{ fileOut: string; options: any; toFile: (arg0: any) => any; }} */ instance,
@@ -97,7 +98,6 @@ module.exports = (
 		)
 		return dom.serialize()
 	})
-	// TODO: eleventy.addPlugin(pluginTailwindCSS)
 
 	// HTML
 	eleventy.addPlugin(automaticNoopener)
@@ -165,7 +165,11 @@ module.exports = (
 	})
 
 	return {
-		input: '.',
+		dir: {
+			input: 'pages',
+			includes: '../_includes',
+			data: '../_data',
+		},
 		templateFormats: ['njk', 'md'],
 	}
 }

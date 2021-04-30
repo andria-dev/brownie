@@ -68,7 +68,7 @@ yarn-error.log
 .vscode/
 
 # WebStorm config
-.idea/
+.idea
 
 # GraphQL
 .graphqlconfig
