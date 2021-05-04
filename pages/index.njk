@@ -4,15 +4,16 @@ layout: base
 <title data-helmet="">The Brownie Blog</title>
 <link data-helmet="" rel="stylesheet" href="index.css">
 
-<header>
-	<h1 class="blog-title">
-		<a href="/" aria-label="The Brownie Blog">
+<header class="flex flex-col items-center gap-5">
+	{% include 'portrait.njk' %}
+	<h1>
+		<a href="/" aria-label="The Brownie Blog" class="flex text-4xl md:text-7xl font-extrabold items-center">
 			<span class="title-piece" aria-hidden="true">The </span>
-			<span class="title-piece" aria-hidden="true">Br<img class="title-piece__logo" src="/public/logo.svg" alt="">wnie</span>
+			<span class="title-piece" aria-hidden="true">Br<img src="/public/logo.svg" alt="">wnie</span>
 			<span class="title-piece" aria-hidden="true"> Blog</span>
 		</a>
 	</h1>
-	{% include 'bio.njk' %}
+	{% include 'bio-text.njk' %}
 </header>
 
 <main>

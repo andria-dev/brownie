@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.title-piece {
+	@apply inline-block flex items-center;
+}
+.title-piece:nth-child(2) {
+	@apply text-blue-500 mx-3.5 md:mx-7;
+}
+
+.title-piece img {
+	@apply w-8 md:w-16 -mb-2 md:-mb-4;
+}

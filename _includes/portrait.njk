@@ -1,0 +1,22 @@
+{% set portraitSmall = './images/profile-pic.jpg' | sharp | resize(150, 150) %}
+{% set portraitLarge = './images/profile-pic.jpg' | sharp | resize(200, 200) %}
+<img class="portrait" srcset="
+		{% _getUrl portraitLarge %} 122w,
+		{% _getUrl portraitSmall %} 100w
+	" sizes="
+		(min-width: 600px) 122px
+		100px
+	" alt="Smiling lady with curly blonde hair and a floral blouse.">
+<style>
+	.portrait {
+		--size: 100px;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 50%;
+	}
+	@media (min-width: 600px) {
+		.portrait {
+			--size: 122px;
+		}
+	}
+</style>

@@ -47,7 +47,7 @@ module.exports = (
 	/** @type {import('@11ty/eleventy/src/UserConfig.js')} */ eleventy,
 ) => {
 	// Assets
-	eleventy.addPlugin(pluginTailwindCSS, {src: 'pages/**/*.css'})
+	eleventy.addPlugin(pluginTailwindCSS, {src: './**/*.css'})
 	eleventy.addPlugin(sharpPlugin(sharpConfig))
 	eleventy.addAsyncShortcode('_getUrl', async function (
 		/** @type {{ fileOut: string; options: any; toFile: (arg0: any) => any; }} */ instance,
@@ -65,38 +65,6 @@ module.exports = (
 		const urlDirectory =
 			sharpConfig.outputDir.replace('_site', '') + sharpConfig.urlPath
 		return path.join(urlDirectory, path.basename(instance.fileOut))
-	})
-	eleventy.addTransform('copy-images-to-build', async (
-		/** @type {string} */ content,
-		/** @type {string} */ pageOutputPath,
-	) => {
-		if (!pageOutputPath?.endsWith('.html')) return content
-
-		// TODO: convert content string to document object and copy images to correct build directory and then replace the src, srcset, or other related attribute with the full path.
-		const dom = new JSDOM(content)
-		const {document} = dom.window
-
-		await Promise.all(
-			Array.from(document.querySelectorAll('main img, main source, main video'))
-				// @ts-ignore
-				.map(async (
-					/** @type {HTMLImageElement | HTMLSourceElement | HTMLVideoElement & { srcset: never }} */ element,
-				) => {
-					if (element.src) {
-						const directory = path.dirname(pageOutputPath).replace('_site/', '')
-						const src = path.join(directory, element.src)
-						const inputPath = path.resolve(process.cwd(), src)
-						const outputPath = path.resolve(process.cwd(), '_site', src)
-						try {
-							await fs.copyFile(inputPath, outputPath)
-						} catch {}
-					}
-
-					if (element.srcset) {
-					}
-				}),
-		)
-		return dom.serialize()
 	})
 
 	// HTML
@@ -126,6 +94,7 @@ module.exports = (
 	eleventy.addLayoutAlias('base', 'layouts/base.njk')
 	eleventy.addLayoutAlias('post', 'layouts/post.njk')
 	eleventy.addPassthroughCopy('public')
+	eleventy.setTemplateFormats(['njk', 'md', 'png', 'jpg', 'webp', 'avif'])
 
 	// Filters
 	eleventy.addFilter('formatValidDateString', (/** @type {Date} */ value) =>
