@@ -4,7 +4,7 @@ layout: base
 <title data-helmet="">The Brownie Blog</title>
 <link data-helmet="" rel="stylesheet" href="index.css">
 
-<header class="flex flex-col items-center gap-5">
+<header class="flex flex-col items-center gap-5 mb-8">
 	{% include 'portrait.njk' %}
 	<h1>
 		<a href="/" aria-label="The Brownie Blog" class="flex text-4xl md:text-7xl font-extrabold items-center">
@@ -16,7 +16,7 @@ layout: base
 	{% include 'bio-text.njk' %}
 </header>
 
-<main>
+<main class="flex flex-col items-center gap-y-8">
 	{% for post in collections.posts %}
 		{% include 'post-link.njk' %}
 	{% endfor %}

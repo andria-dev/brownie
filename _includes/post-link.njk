@@ -1,7 +1,15 @@
-<div class="post-listing">
-	<h2 class="title">
-		<a href="{{ post.url }}">{{ post.data.title}}</a>
-	</h2>
-	{% include 'publication-metadata.njk' %}
-	<p>{{ post.data.description or 'An article written by Chris Brown' }}</p>
+{% set hasImage = post.data.image.file and post.data.image.description %}
+
+<div class="w-96 flex flex-col">
+	{% if hasImage %}
+		<img class="w-80 mx-auto h-44 rounded" style="z-index: -1;" src="{% replacePathBasename post.url, post.data.image.file %}" alt="{{ post.data.image.description }}">
+	{% endif %}
+
+	<div class="w-full p-4 flex flex-col gap-y-2.5 bg-white border border-blue-400 rounded shadow {{ hasImage and '-mt-4'}}">
+		<h2 class="text-2xl font-bold" style="font-family: Merriweather;">
+			<a href="{{ post.url }}">{{ post.data.title }}</a>
+		</h2>
+		{% include 'publication-metadata.njk' %}
+		<p class="text-lg" style="font-family: Merriweather;">{{ post.data.description or 'An article written by Chris Brown' }}</p>
+	</div>
 </div>

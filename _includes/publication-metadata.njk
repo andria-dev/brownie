@@ -1,9 +1,9 @@
-<div class="publication-metadata">
-	<p>
+<div class="text-sm text-gray-600" style="font-family: Merriweather;">
+	<p class="inline">
 		<time datetime="{{ post.data.date | formatValidDateString }}">{{ post.data.date | formatHumanReadableDate }}</time>
 	</p>
 	<span aria-hidden="true">·</span>
-	<p>
+	<p class="inline">
 		<span>{{ post | timeToRead }}</span>
 		{% if not post.data.published %}
 			<span classname="draft">

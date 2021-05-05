@@ -67,6 +67,15 @@ module.exports = (
 		return path.join(urlDirectory, path.basename(instance.fileOut))
 	})
 
+	eleventy.addNunjucksShortcode('replacePathBasename', function (
+		/** @type {string} */ filepath,
+		/** @type {string} */ filename,
+	) {
+		// Directory
+		if (filepath.endsWith('/')) return path.resolve(filepath, filename)
+		return path.resolve(path.dirname(filepath), filename)
+	})
+
 	// HTML
 	eleventy.addPlugin(automaticNoopener)
 	eleventy.addPlugin(helmetPlugin)
