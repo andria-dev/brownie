@@ -3,6 +3,9 @@ tags: post
 layout: layouts/post.njk
 title: Making a Stateful Android Battery Widget
 description: My notes and thoughts on developing a beautiful battery widget for Android
+image:
+  file: 'battery-widget.png'
+  description: 'Android battery widget displaying the percentage and charging status of the battery.'
 date: 2020-11-07
 published: true
 ---
@@ -14,13 +17,6 @@ This battery widget should be able to:
 - Update battery percentage and battery indicator whenever the value changes.
 - Display if the phone is charging or not.
 - Launch the battery settings when touched.
-
-<picture>
-	<source src="./battery-widget.avif" type="image/avif">
-	<source src="./battery-widget.webp" type="image/webp">
-	<img src="./battery-widget.png" alt="Android battery widget displaying the percentage and charging status of the battery.">
-</picture>
-<br>
 
 First, let's go over how to launch the battery settings from our widget. This will be different from the last article where we launched an app. In this case, the battery settings are not an app but instead a shortcut within the Settings app.
 

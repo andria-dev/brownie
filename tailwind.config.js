@@ -1,0 +1,55 @@
+module.exports = {
+	theme: {
+		zIndex: {
+			'-1': -1,
+		},
+		fontFamily: {
+			sans: [
+				'Montserrat',
+				'ui-sans-serif',
+				'system-ui',
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'Segoe UI',
+				'Roboto',
+				'Helvetica Neue',
+				'Arial',
+				'Noto Sans',
+				'sans-serif',
+				'Apple Color Emoji',
+				'Segoe UI Emoji',
+				'Segoe UI Symbol',
+				'Noto Color Emoji',
+			],
+			serif: [
+				'Merriweather',
+				'ui-serif',
+				'Georgia',
+				'Cambria',
+				'Times New Roman',
+				'Times',
+				'serif',
+			],
+			mono: [
+				'JetBrains Mono',
+				'ui-monospace',
+				'SFMono-Regular',
+				'Menlo',
+				'Monaco',
+				'Consolas',
+				'Liberation Mono',
+				'Courier New',
+				'monospace',
+			],
+		},
+		extend: {
+			spacing: {
+				69: '17.25rem',
+				82: '20.5rem',
+				87: '21.75rem',
+				110: '27.5rem',
+				121: '30.25rem',
+			},
+		},
+	},
+}

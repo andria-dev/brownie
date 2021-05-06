@@ -103,7 +103,17 @@ module.exports = (
 	eleventy.addLayoutAlias('base', 'layouts/base.njk')
 	eleventy.addLayoutAlias('post', 'layouts/post.njk')
 	eleventy.addPassthroughCopy('public')
-	eleventy.setTemplateFormats(['njk', 'md', 'png', 'jpg', 'webp', 'avif'])
+	eleventy.setTemplateFormats([
+		'njk',
+		'md',
+		'png',
+		'jpg',
+		'jpeg',
+		'webp',
+		'svg',
+		'avif',
+		'mp4',
+	])
 
 	// Filters
 	eleventy.addFilter('formatValidDateString', (/** @type {Date} */ value) =>

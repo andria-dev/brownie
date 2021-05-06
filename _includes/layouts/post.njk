@@ -7,8 +7,7 @@ layout: base
 		title: title,
 		description: description,
 		date: date,
-		published: published,
-		image: image
+		published: published
 	},
 	templateContent: content
 } %}
@@ -20,6 +19,11 @@ layout: base
 
 	{% if image.file and image.description %}
 		<img src="{{ image.file }}" alt="{{ image.description }}" class="" />
+		<br>
+	{% elif video.file %}
+		<video class="w-full rounded" playsinline="playsinline" autoplay="autoplay" loop="loop" muted="muted">
+			<source src="{{ video.file }}" />
+		</video>
 		<br>
 	{% endif %}
 </header>

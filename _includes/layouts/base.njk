@@ -12,17 +12,20 @@
 		<meta name="msapplication-TileColor" content="#ffc40d" />
 		<meta name="theme-color" content="#fafafa" />
 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
 		<link rel="preload" as="style" href="/public/fonts/JetBrainsMono/font.css">
 		<link rel="stylesheet" href="/_includes/layouts/base.css">
 	</head>
-	<body class="my-8">
+	<body class="mt-8 mb-4">
 		{{ content | safe }}
 
 		{# Copyright info #}
-		<footer class="copyright-footer">
-			<small class="copyright-text">
+		<footer class="w-full mt-8">
+			<small class="block w-full font-serif text-center text-lg">
 				<span aria-label="Copyright">©</span>
-				{{ helpers.currentYear() }} Chris Brown, Built with <span aria-label="love">♥</span> and <a href="https://www.11ty.dev/">Eleventy</a>.
+				{{ helpers.currentYear() }} Chris Brown, Built with <img class="inline" src="/public/heart.svg" alt="love"> and <a href="https://www.11ty.dev/">Eleventy</a>.
 			</small>
 		</footer>
 	</body>

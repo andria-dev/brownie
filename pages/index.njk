@@ -7,7 +7,7 @@ layout: base
 <header class="flex flex-col items-center gap-5 mb-8">
 	{% include 'portrait.njk' %}
 	<h1>
-		<a href="/" aria-label="The Brownie Blog" class="flex text-4xl md:text-7xl font-extrabold items-center">
+		<a href="/" aria-label="The Brownie Blog" class="flex text-4xl md:text-7xl font-black items-center">
 			<span class="title-piece" aria-hidden="true">The </span>
 			<span class="title-piece" aria-hidden="true">Br<img src="/public/logo.svg" alt="">wnie</span>
 			<span class="title-piece" aria-hidden="true"> Blog</span>
@@ -16,8 +16,25 @@ layout: base
 	{% include 'bio-text.njk' %}
 </header>
 
-<main class="flex flex-col items-center gap-y-8">
+<main class="flex flex-col items-center 2xl:grid 2xl:grid-flow-row 2xl:grid-auto-rows-min 2xl:grid-cols-2 2xl:items-end 2xl:justify-items-center gap-8 2xl:w-max 2xl:mx-auto mb-8">
+	{# <main class="flex flex-col 2xl:flex-row 2xl:flex-wrap 2xl:justify-center items-center gap-8 2xl:max-w-screen-xl 2xl:mx-auto mb-8"> #}
 	{% for post in collections.posts %}
 		{% include 'post-link.njk' %}
 	{% endfor %}
 </main>
+
+{% macro link(href, content) %}
+	<li>
+		<a class="font-serif underline text-blue-500" href="{{ href }}">{{ content }}</a>
+	</li>
+{% endmacro %}
+
+<aside class="mx-auto w-max">
+	<h2 class="text-4xl font-sans mb-4">Other Links</h2>
+	<ul class="list-disc list-inside">
+		{{ link('https://portfolio.chrisbrownie.dev/', 'Web Developer Portfolio') }}
+		{{ link('https://github.com/chrisbrownie55/', 'GitHub Profile') }}
+		{{ link('mailto:chris_brown@hey.com', 'Send an Email') }}
+		{# link('link to article', 'Read Her Story') #}
+</ul>
+</aside>
