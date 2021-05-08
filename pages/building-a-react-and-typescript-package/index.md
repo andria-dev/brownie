@@ -2,8 +2,7 @@
 tags: post
 layout: layouts/post.njk
 title: Building a React and TypeScript Library
-description: ''
-date: 2020-08-01
+date: 2021-05-06
 published: false
 ---
 

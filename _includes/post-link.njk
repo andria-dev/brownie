@@ -6,16 +6,18 @@
 	{% set coverType = 'none' %}
 {% endif %}
 
-<div class="w-max flex flex-col items-center">
+<div class="w-max flex flex-col items-center h-full">
 	{% if coverType === 'image' %}
 		<img class="w-82 md:w-121 h-44 md:h-69 mx-auto rounded object-cover -z-1" src="{% replacePathBasename post.url, post.data.image.file %}" alt="{{ post.data.image.description }}">
 	{% elif coverType === 'video'%}
 		<video class="block w-82 md:w-121 h-44 md:h-69 mx-auto rounded object-cover -z-1" playsinline="playsinline" loop="loop" muted="muted" disablepictureinpicture="disablePictureInPicture">
 			<source src="{% replacePathBasename post.url, post.data.video.file %}#t={{ post.data.video.time or 2 }},{{ (post.data.video.time or 2) + 1 }}" />
 		</video>
+	{% else %}
+		<div class="w-82 md:w-121 md:h-69 mx-auto rounded -z-1 bg-gradient-to-b from-blue-300 via-green-300 to-transparent"></div>
 	{% endif %}
 
-	<div class="w-87 md:w-110 p-4 flex flex-col gap-y-2.5 bg-white border border-blue-400 rounded {{ coverType !== 'none' and '-mt-4 md:-mt-24'}}">
+	<div class="w-87 md:w-110 p-4 flex flex-col justify-center gap-y-2.5 bg-white border border-blue-400 rounded -mt-4 md:-mt-24">
 		<h2 class="text-2xl font-serif font-bold">
 			<a href="{{ post.url }}">{{ post.data.title }}</a>
 		</h2>
