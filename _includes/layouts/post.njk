@@ -11,6 +11,7 @@ layout: base
 	},
 	templateContent: content
 } %}
+<link data-helmet="" rel="stylesheet" href="/_includes/layouts/post.css">
 
 <header>
 	<a href="/" class="blog-title">The Brownie Blog</a>
@@ -33,7 +34,9 @@ layout: base
 	{{ content | toc | safe }}
 
 	{# Markdown content #}
-	{{ content | safe }}
+	<article class="post-content">
+		{{ content | safe }}
+	</article>
 </main>
 
 <hr>

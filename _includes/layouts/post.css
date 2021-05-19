@@ -1,0 +1,10 @@
+.post-content p {
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+}
+
+.post-content pre {
+	max-width: 100%;
+	overflow-x: auto;
+}
