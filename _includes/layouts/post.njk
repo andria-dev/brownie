@@ -9,27 +9,36 @@ layout: base
 		date: date,
 		published: published
 	},
-	templateContent: content
+	templateContent: content,
+	url: page.url
 } %}
 <link data-helmet="" rel="stylesheet" href="/_includes/layouts/post.css">
 
-<header>
-	<a href="/" class="blog-title">The Brownie Blog</a>
-	<h1 class="post-title">{{ title }}</h1>
-	{% include 'publication-metadata.njk' %}
+<header class="px-8">
+	<a href="/" class="block w-max mx-auto mb-5">
+		<img class="inline w-8 h-8 p-0.5 " src="/public/logo.svg" alt="">
+		<span class="h-full align-middle font-serif font-bold text-lg" style="color: #668AFE;">Home</span>
+	</a>
 
-	{% if image.file and image.description %}
-		<img src="{{ image.file }}" alt="{{ image.description }}" class="" />
-		<br>
-	{% elif video.file %}
-		<video class="w-full rounded" playsinline="playsinline" autoplay="autoplay" loop="loop" muted="muted">
-			<source src="{{ video.file }}" />
-		</video>
-		<br>
-	{% endif %}
+	<div class="flex flex-col gap-y-10">
+		<div class="flex flex-col gap-y-3 items-center">
+			<h1 class="font-sans font-extrabold text-center text-4xl">{{ title }}</h1>
+			{% include 'publication-metadata.njk' %}
+		</div>
+
+		{% if image.file and image.description %}
+			<img class="rounded shadow" src="{{ image.file }}" alt="{{ image.description }}" />
+			<br>
+		{% elif video.file %}
+			<video class="w-full rounded shadow-sm" playsinline="playsinline" autoplay="autoplay" loop="loop" muted="muted">
+				<source src="{{ video.file }}" />
+			</video>
+			<br>
+		{% endif %}
+	</div>
 </header>
 
-<main>
+<main class="px-8">
 	{# Table of Contents #}
 	{{ content | toc | safe }}
 
