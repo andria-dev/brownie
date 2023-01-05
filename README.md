@@ -1,6 +1,6 @@
 # The Brownie Blog
 
-This is the GitHub repository for my blog at https://chrisbrownie.dev/
+This is the GitHub repository for my blog at https://andria.page/
 
 Here I write articles about my thoughts on and experiences with code. I try to write as often as possible but time constraints can make producing new articles difficult.
 

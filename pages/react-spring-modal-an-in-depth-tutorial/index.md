@@ -145,7 +145,7 @@ If you're not fond of animations just pass in any old thing to `<BaseModal>` as 
 
 #### "Wow! This is so simple."
 
-If you're thinking to yourself "Wow! This is so simple," then you're gonna love how simple it is to render another modal from within your modal. If you think that it's not so simple, <a href="https://github.com/ChrisBrownie55/react-spring-modal/issues">please open up an issue on the repository</a> and we can discuss making it better.
+If you're thinking to yourself "Wow! This is so simple," then you're gonna love how simple it is to render another modal from within your modal. If you think that it's not so simple, <a href="https://github.com/andria-dev/react-spring-modal/issues">please open up an issue on the repository</a> and we can discuss making it better.
 
 ### Nesting
 
@@ -174,5 +174,6 @@ Here are some links to look at if you want to keep exploring:
 
 - <a href="https://www.react-spring.io/">React Spring</a>
 - <a href="https://twitter.com/0xca0a">Creator of React Spring</a>
-- <a href="https://github.com/ChrisBrownie55/react-spring-modal">React Spring Modal</a>
-- <a href="https://github.com/ChrisBrownie55/notably">Notably: an application built with react-spring-modal</a>
+- <a href="https://github.com/andria-dev/react-spring-modal">React Spring Modal</a>
+- <a href="https://github.com/andria-dev/notably">Notably: an application built with react-spring-modal</a>
+
