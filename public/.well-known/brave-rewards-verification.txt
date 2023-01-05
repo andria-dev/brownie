@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: chrisbrownie.dev
-Token: 409588607df6fcfd899fa4b2ba283ab616f12703e123a19df34da8d4ce9cebc4

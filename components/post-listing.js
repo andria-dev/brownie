@@ -18,7 +18,7 @@ export function PostListing({post: {slug, content, stats}}) {
 					</span>
 				) : null}
 			</small>
-			<p>{content.description || 'An article by Chris Brown'}</p>
+			<p>{content.description || 'An article by Andria Brown'}</p>
 
 			<style jsx>{`
 				.title {

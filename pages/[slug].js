@@ -28,7 +28,7 @@ export default function BlogPost({post, siteMetadata}) {
 		<Layout title={content.title} siteMetadata={siteMetadata}>
 			<SEO
 				title={content.title}
-				description={content.description || 'A post by Chris Brown'}
+				description={content.description || 'A post by Andria Brown'}
 				siteMetadata={siteMetadata}
 			/>
 			<CodeFont />

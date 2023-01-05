@@ -47,7 +47,7 @@ Beyond just looking at what Web Components capabilities are, it's important to l
 - **They support bi-directional data flow**.
   - Due to Web Components nature of having no input on how you manage state, bi-directional data flow is made possible.
   - This allows developers to write more reactive code that avoids constant event-handling duplication and manual state management handling
-  - I built an example of this, [check out two-way](https://github.com/ChrisBrownie55/two-way).
+  - I built an example of this, [check out two-way](https://github.com/andria-dev/two-way).
 
 ### Disadvantages
 
@@ -150,7 +150,7 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 
 ## Sources
 
-0. https://chrisbrownie55.github.io/svg-designer
+0. https://andria-dev.github.io/svg-designer
 1. https://developer.mozilla.org/en-US/docs/Web/Web_Components
 2. https://w3c.github.io/webcomponents/spec/custom
 3. https://developers.google.com/web/fundamentals/web-components/shadowdom
@@ -160,3 +160,4 @@ Mollit ex tempor laboris commodo voluptate non non aliqua consequat adipisicing 
 7. https://github.com/skatejs/skatejs/tree/master/packages/ssr
 8. https://jquery.com/
 9. https://bundlephobia.com/result?p=jquery@3.5.1
+

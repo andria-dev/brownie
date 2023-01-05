@@ -67,13 +67,14 @@ export const resolvers = {
 		},
 		siteMetadata() {
 			return {
-				title: 'The Brownie Blog',
-				author: 'Chris Brown',
+				title: "Andria's Page",
+				author: 'Andria Brown',
 				description: 'A blog about front-end web development and my life.',
-				siteURL: 'https://chrisbrownie.dev',
+				siteURL: 'https://andria.page',
 				social: {
-					twitter: 'ChrisHBrown55',
-					github: 'ChrisBrownie55',
+					twitter: 'andria_dev',
+					linkedin: 'andria_dev',
+					github: 'andria-dev',
 				},
 			}
 		},

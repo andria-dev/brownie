@@ -60,7 +60,7 @@ export default function Layout({siteMetadata, children}) {
 			<header>{header}</header>
 			<main>{children}</main>
 			<footer style={{marginTop: 40}}>
-				© {new Date().getFullYear()} Chris Brown, Built with{' '}
+				© {new Date().getFullYear()} Andria Brown, Built with{' '}
 				<a href="https://nextjs.org" rel="nofollow">
 					<i>Next.JS</i>
 				</a>{' '}
