@@ -25,6 +25,7 @@ export default function Layout({siteMetadata, children}) {
 						fontWeight: 900,
 					}}
 					href="/"
+					legacyBehavior
 				>
 					<a aria-label="The Brownie Blog">
 						<span className="title-piece">The&#32;</span>
@@ -48,7 +49,7 @@ export default function Layout({siteMetadata, children}) {
 	} else {
 		header = (
 			<h3 className="blog-title">
-				<Link href="/">
+				<Link href="/" legacyBehavior>
 					<a>{siteMetadata.title}</a>
 				</Link>
 			</h3>
