@@ -2,7 +2,8 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	distDir: '_site',
+	// distDir: '_site',
 }
 
 export default nextConfig
+
