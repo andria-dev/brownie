@@ -6,7 +6,7 @@ export function PostListing({post: {slug, content, stats}}) {
 	return (
 		<div className="post-listing">
 			<h2 className="title">
-				<Link href={slug}>
+				<Link href={slug} legacyBehavior>
 					<a>{content.title}</a>
 				</Link>
 			</h2>

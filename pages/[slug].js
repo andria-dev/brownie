@@ -82,14 +82,14 @@ export default function BlogPost({post, siteMetadata}) {
 			<ul className="page-links">
 				<li className="previous-link">
 					{context.previous && (
-						<Link href={context.previous.slug} rel="prev">
+						<Link href={context.previous.slug} rel="prev" legacyBehavior>
 							<a>← {context.previous.content.title}</a>
 						</Link>
 					)}
 				</li>
 				<li className="next-link">
 					{context.next && (
-						<Link href={'/' + context.next.slug} rel="next">
+						<Link href={'/' + context.next.slug} rel="next" legacyBehavior>
 							<a>{context.next.content.title} →</a>
 						</Link>
 					)}
