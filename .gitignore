@@ -76,6 +76,7 @@ schema.graphql
 
 .next/
 .vercel/
+_site/
 
 # 11ty
 _site/
