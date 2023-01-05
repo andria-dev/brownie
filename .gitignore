@@ -76,5 +76,6 @@ schema.graphql
 
 .next/
 .vercel/
+_site/
 
 posts-cache.json
