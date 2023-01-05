@@ -1,4 +1,6 @@
-import {ApolloServer, gql} from 'apollo-server-micro'
+import {ApolloServer} from '@apollo/server'
+import gql from 'graphql-tag'
+import {nextHandler} from 'apollo-server-nextjs'
 import {GraphQLScalarType} from 'graphql'
 import posts from '../../posts-cache.json'
 
@@ -99,7 +101,7 @@ const apolloServer = new ApolloServer({
 	resolvers,
 })
 
-const handler = apolloServer.createHandler({path: '/api/graphql'})
+const handler = nextHandler(apolloServer)
 
 export default handler
 export const config = {api: {bodyParser: false}}

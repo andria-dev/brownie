@@ -1,6 +1,6 @@
 import {ApolloClient, InMemoryCache} from '@apollo/client'
 export {gql} from '@apollo/client'
-import {SchemaLink} from 'apollo-link-schema'
+import {SchemaLink} from '@apollo/client/link/schema'
 import {resolvers, typeDefinitions as typeDefs} from '../../pages/api/graphql'
 import {makeExecutableSchema} from 'graphql-tools'
 

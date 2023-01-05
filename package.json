@@ -8,23 +8,25 @@
 		"url": "https://github.com/andria-dev/brownie/issues"
 	},
 	"dependencies": {
-		"@apollo/client": "^3.2.5",
-		"apollo-link-schema": "^1.2.5",
-		"apollo-server-micro": "^2.19.0",
+		"@apollo/client": "^3.7.3",
+		"@apollo/server": "^4.3.0",
+		"apollo-server-nextjs": "4.0.0",
 		"chokidar": "^3.4.3",
 		"esm": "^3.2.25",
-		"graphql-tools": "^7.0.1",
+		"graphql": "^16.6.0",
+		"graphql-tag": "^2.12.6",
+		"graphql-tools": "^8.3.14",
 		"htm": "^3.0.4",
 		"ink": "^3.0.8",
 		"mini-debounce": "^1.0.8",
 		"minimist": "^1.2.5",
-		"next": "^10.0.1",
+		"next": "^13.1.1",
 		"prism-themes": "^1.4.0",
 		"prismjs": "^1.20.0",
 		"prop-types": "^15.7.2",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-typography": "^0.16.19",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-typography": "^0.16.23",
 		"reading-time": "^1.2.0",
 		"rehype-parse": "^7.0.1",
 		"rehype-stringify": "^8.0.0",
@@ -85,4 +87,3 @@
 		"node": "18.12.1"
 	}
 }
-
