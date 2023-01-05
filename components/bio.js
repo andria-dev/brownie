@@ -16,6 +16,7 @@ export function Bio({
 				height={75}
 				layout="fixed"
 				priority={priority}
+				style={{objectFit: 'cover'}}
 			/>
 			<p style={{margin: `auto 0 auto ${rhythm(1 / 2)}`}}>
 				Written by <b>{author}</b>, from the Boise area. Building useful things
