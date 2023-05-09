@@ -49,32 +49,35 @@ module.exports = (
 	// Assets
 	eleventy.addPlugin(pluginTailwindCSS, {src: './**/*.css'})
 	eleventy.addPlugin(sharpPlugin(sharpConfig))
-	eleventy.addAsyncShortcode('_getUrl', async function (
-		/** @type {{ fileOut: string; options: any; toFile: (arg0: any) => any; }} */ instance,
-	) {
-		if (!instance.fileOut) {
-			instance.fileOut = path.join(
-				sharpConfig.outputDir,
-				sharpConfig.urlPath,
-				createFileOutName(instance.options),
-			)
-		}
-		console.log('Writing %o', instance.fileOut)
-		await instance.toFile(instance.fileOut)
+	eleventy.addAsyncShortcode(
+		'_getUrl',
+		async function (
+			/** @type {{ fileOut: string; options: any; toFile: (arg0: any) => any; }} */ instance,
+		) {
+			if (!instance.fileOut) {
+				instance.fileOut = path.join(
+					sharpConfig.outputDir,
+					sharpConfig.urlPath,
+					createFileOutName(instance.options),
+				)
+			}
+			console.log('Writing %o', instance.fileOut)
+			await instance.toFile(instance.fileOut)
 
-		const urlDirectory =
-			sharpConfig.outputDir.replace('_site', '') + sharpConfig.urlPath
-		return path.join(urlDirectory, path.basename(instance.fileOut))
-	})
+			const urlDirectory =
+				sharpConfig.outputDir.replace('_site', '') + sharpConfig.urlPath
+			return path.join(urlDirectory, path.basename(instance.fileOut))
+		},
+	)
 
-	eleventy.addNunjucksShortcode('replacePathBasename', function (
-		/** @type {string} */ filepath,
-		/** @type {string} */ filename,
-	) {
-		// Directory
-		if (filepath.endsWith('/')) return path.resolve(filepath, filename)
-		return path.resolve(path.dirname(filepath), filename)
-	})
+	eleventy.addNunjucksShortcode(
+		'replacePathBasename',
+		function (/** @type {string} */ filepath, /** @type {string} */ filename) {
+			// Directory
+			if (filepath.endsWith('/')) return path.resolve(filepath, filename)
+			return path.resolve(path.dirname(filepath), filename)
+		},
+	)
 
 	// HTML
 	eleventy.addPlugin(automaticNoopener)
@@ -135,22 +138,26 @@ module.exports = (
 	)
 
 	// Collections
-	eleventy.addCollection('posts', (
-		/** @type {import('@11ty/eleventy/src/TemplateCollection.js')} */ templateCollection,
-	) => {
-		const posts = templateCollection
-			.getFilteredByTag('post')
-			.filter(
-				(item) => process.env.NODE_ENV === 'development' || item.data.published,
-			)
-			.sort((a, b) => b.date.getTime() - a.date.getTime())
+	eleventy.addCollection(
+		'posts',
+		(
+			/** @type {import('@11ty/eleventy/src/TemplateCollection.js')} */ templateCollection,
+		) => {
+			const posts = templateCollection
+				.getFilteredByTag('post')
+				.filter(
+					(item) =>
+						process.env.NODE_ENV === 'development' || item.data.published,
+				)
+				.sort((a, b) => b.date.getTime() - a.date.getTime())
 
-		for (let index = 0; index < posts.length; index++) {
-			posts[index].data.previous = posts[index - 1] || null
-			posts[index].data.next = posts[index + 1] || null
-		}
-		return posts
-	})
+			for (let index = 0; index < posts.length; index++) {
+				posts[index].data.previous = posts[index - 1] || null
+				posts[index].data.next = posts[index + 1] || null
+			}
+			return posts
+		},
+	)
 
 	return {
 		dir: {

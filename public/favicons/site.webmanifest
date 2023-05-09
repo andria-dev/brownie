@@ -1,19 +1,19 @@
 {
-    "name": "The Brownie Blog",
-    "short_name": "The Brownie Blog",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png?V=PYAmmRp8gy",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png?V=PYAmmRp8gy",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#fafafa",
-    "background_color": "#fafafa",
-    "display": "standalone"
+	"name": "Andria's Page",
+	"short_name": "Andria's Page",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png?V=PYAmmRp8gy",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png?V=PYAmmRp8gy",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#fafafa",
+	"background_color": "#fafafa",
+	"display": "standalone"
 }

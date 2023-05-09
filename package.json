@@ -1,5 +1,5 @@
 {
-	"name": "the-brownie-blog",
+	"name": "blog",
 	"private": true,
 	"description": "My blog",
 	"version": "0.0.1",
@@ -18,12 +18,9 @@
 		"ink": "^3.0.8",
 		"mini-debounce": "^1.0.8",
 		"minimist": "^1.2.5",
-		"next": "^10.0.1",
 		"prism-themes": "^1.4.0",
 		"prismjs": "^1.20.0",
 		"prop-types": "^15.7.2",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
 		"react-typography": "^0.16.19",
 		"reading-time": "^1.2.0",
 		"rehype-parse": "^7.0.1",
@@ -66,7 +63,8 @@
 	},
 	"scripts": {
 		"develop": "NODE_ENV=development eleventy --serve",
-		"build": "NODE_ENV=production eleventy"
+		"build": "NODE_ENV=production eleventy",
+		"format": "prettier --write '**/*.(js|css|html|json)'"
 	},
 	"husky": {
 		"hooks": {
@@ -74,7 +72,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js,jsx}": "prettier --write"
+		"*.{js,jsx}": "yarn format"
 	},
 	"engines": {
 		"node": "18.x"

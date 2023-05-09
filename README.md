@@ -1,4 +1,4 @@
-# The Brownie Blog
+# My Blog
 
 This is the GitHub repository for my blog at https://andria.page/
 
@@ -11,4 +11,4 @@ If you have any ideas or concerns please open an issue or pull request. All cont
 - Accessibility fixes/concerns
 - Translations
 
-This site was built using [Next.js](https://www.nextjs.org/) with [React](https://reactjs.org/).
+This site was built using Eleventy.
