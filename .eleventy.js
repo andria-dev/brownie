@@ -159,6 +159,11 @@ module.exports = (
 		},
 	)
 
+	eleventy.setBrowserSyncConfig({
+		ghostMode: false,
+		host: process.env.HOST || null,
+	})
+
 	return {
 		dir: {
 			input: 'pages',
